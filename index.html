@@ -3,261 +3,386 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jesse Zesbaugh</title>
+<title>Jesse Zesbaugh — IT, compliance and operations</title>
+<meta name="description" content="Twenty years building and running small organizations. IT and compliance, platform operations, media production. Nine questions answered from a verified record.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Jesse Zesbaugh — IT, compliance and operations">
+<meta property="og:description" content="Twenty years building and running small organizations. Nine questions answered from a verified record, and declined when the record does not cover them.">
+<meta property="og:url" content="https://jzesbaugh.github.io/resume/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%233C4F1B'/><text y='72' x='50' text-anchor='middle' font-family='Helvetica,sans-serif' font-size='58' font-weight='500' fill='%23FFFFFF'>JZ</text></svg>">
 <!--
-  WORK IN PROGRESS - 2026-08-07
-  Standalone single-file interactive resume. No dependencies, no build step.
-  Opens directly in a browser from disk, or drop into a GitHub Pages repo as index.html.
+  WORK IN PROGRESS - rev 3, 2026-08-07. Affordance + palette pass.
 
-  DESIGN INTENT: answers are PRE-WRITTEN, not generated. There is no model call and no
-  API key. The refusal behaviour is guaranteed by matching logic, not hoped for.
-  That is deliberate - a resume must never improvise about credentials.
+  DESIGN: editorial credit-block grid (label left, content right), hairline rules, small-caps
+  letterspaced labels. Clean white paper with neutral greys. Single restrained accent in a very
+  dark pea green (#3C4F1B) - dark enough to read as deliberate rather than decorative, saturated
+  enough to be unmistakably not-black at a glance. Earthy greens are the documented intersection
+  of "warm" and "conventionally safe on a resume". Bright red/orange were considered and
+  rejected as the family most often flagged as loud. A warm cream paper was trialed and dropped
+  in favor of clean white.
 
-  CONTACT: email only, by choice. Phone and street address are deliberately NOT here -
-  this page is public and both would be scraped.
+  AFFORDANCE (rev 3): the buttons must read as buttons to ~8 in 10 readers. Five stacked cues,
+  because no single one is sufficient: (1) an explicit instruction line - the highest-reliability
+  signal by far; (2) filled background, not outline-only, since outlined shapes read as tags;
+  (3) a chevron on each; (4) shadow plus hover lift; (5) first item pre-selected so the
+  cause-and-effect is visible before any click. Links are accent-coloured AND underlined; the
+  previous hairline-under-inherited-ink was near-invisible on warm paper.
 
-  BEFORE PUBLISHING:
-    - Attach the PDF and update the download link
-    - Change "expected October 2026" once the degree confers
-    - Run the GATEKEEPER in CAREER_REFERENCE.md
+  REJECTED: a free-text ask box. Higher raw legibility, but it sets an LLM expectation, and a
+  principled refusal is indistinguishable from a broken chatbot to a non-technical reader.
+  Buttons never promise more than the fixed-answer design can deliver.
 
-  TO HOST: rename to index.html, put at repo root, enable GitHub Pages.
+  DESIGN INTENT (unchanged): answers are PRE-WRITTEN, not generated. No model call, no API key.
+  The refusal behaviour is guaranteed by matching logic, not hoped for. A resume must never
+  improvise about credentials.
+
+  ORDER: general to nuanced, declines last. Opens on the career-change question because that
+  is the first objection any employer forms.
+
+  CONTACT: email only, by choice. Phone and street address deliberately absent - public page.
+
+  STILL OPEN: PDF export and link; OG preview image (1200x630); JSON-LD Person schema;
+  serif vs sans for the name (sans retained rev 3, serif was drafted and not adopted).
 -->
 <style>
   :root{
-    --bg:#fbfbf9; --card:#ffffff; --ink:#1c1c1a; --ink2:#5f5e5a; --ink3:#8b8a85;
-    --line:#e5e4df; --accent:#185fa5; --accent-bg:#e6f1fb;
-    --ok:#3b6d11; --ok-bg:#eaf3de; --warn:#854f0b; --warn-bg:#faeeda;
+    --paper:#FFFFFF; --ink:#1A1A1A; --ink2:#5C5C5C; --ink3:#8E8E8E; --line:#E5E5E5;
+    --accent:#3C4F1B; --onaccent:#FFFFFF;
+    --chipbg:#F4F4F2; --chipbd:#DCDCD8; --chipink:#333333;
   }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#14140f; --card:#1f1f1c; --ink:#eceae3; --ink2:#a8a69f; --ink3:#7a7873;
-      --line:#33322d; --accent:#85b7eb; --accent-bg:#0c447c;
-      --ok:#97c459; --ok-bg:#27500a; --warn:#efa027; --warn-bg:#633806;
-    }
+  @media (prefers-color-scheme:dark){
+    :root{ --paper:#0F0F0F; --ink:#ECECEC; --ink2:#A2A2A2; --ink3:#6E6E6E;
+           --line:#2A2A2A; --accent:#A9C866; --onaccent:#12180A;
+           --chipbg:#1C1C1A; --chipbd:#333331; --chipink:#D6D6D2; }
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);
     font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased}
-  .wrap{max-width:760px;margin:0 auto;padding:40px 24px 80px}
-  header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:28px}
-  h1{font-size:28px;font-weight:600;margin:0 0 6px;letter-spacing:-.01em}
-  .sub{color:var(--ink2);font-size:15px;margin:0}
-  .meta{color:var(--ink3);font-size:14px;margin:10px 0 0}
-  h2{font-size:15px;font-weight:600;margin:36px 0 14px;letter-spacing:.02em;
-    text-transform:uppercase;color:var(--ink2)}
-  .lede{font-size:17px;line-height:1.6;margin:0 0 6px}
-  .ask{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
-  button{font:inherit;font-size:13px;color:var(--ink);background:transparent;
-    border:1px solid var(--line);border-radius:8px;padding:7px 13px;cursor:pointer}
-  button:hover{border-color:var(--ink3)}
-  button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  .ans{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);display:none}
-  .ans.on{display:block}
-  .tag{display:inline-block;font-size:12px;padding:3px 10px;border-radius:6px;
-    margin-bottom:10px;font-weight:500}
-  .tag.y{background:var(--ok-bg);color:var(--ok)}
-  .tag.n{background:var(--warn-bg);color:var(--warn)}
-  .q{font-weight:600;margin:0 0 8px;font-size:16px}
-  .a{margin:0;font-size:15px;line-height:1.7}
-  .src{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
-  .src p{margin:0 0 4px;font-size:13px;color:var(--ink2)}
-  .note{font-size:13px;color:var(--ink3);margin:16px 0 0;display:flex;gap:7px}
-  .role{margin:0 0 22px}
-  .role .t{font-weight:600;font-size:16px;margin:0}
-  .role .o{color:var(--ink2);font-size:14px;margin:2px 0 8px}
-  .role ul{margin:0;padding-left:20px}
-  .role li{font-size:15px;margin-bottom:5px;color:var(--ink2)}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
-  .cardlet{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
-  .cardlet p{margin:0;font-size:14px;color:var(--ink2)}
-  .cardlet strong{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
-  footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);
-    font-size:13px;color:var(--ink3)}
-  a{color:var(--accent)}
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  .wrap{max-width:720px;margin:0 auto;padding:64px 28px 96px}
+
+  a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;
+    text-decoration-thickness:1px;font-weight:500;transition:opacity .15s}
+  a:hover{opacity:.68}
+
+  .name{font-size:44px;font-weight:500;letter-spacing:-.025em;line-height:1;margin:0 0 18px}
+  .contact{display:flex;flex-wrap:wrap;gap:6px 26px;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink2);margin:0}
+  header{border-bottom:1px solid var(--ink);padding-bottom:22px}
+
+  .lede{font-size:19px;line-height:1.6;margin:36px 0 0;letter-spacing:-.005em}
+
+  .lab{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);
+    margin:4px 0 0}
+  .sec{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);
+    margin:56px 0 0;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+
+  .row{display:grid;grid-template-columns:118px minmax(0,1fr);gap:0 30px;
+    padding:24px 0;border-bottom:.5px solid var(--line)}
+  .row:last-of-type{border-bottom:none}
+  .ttl{font-size:17px;font-weight:500;margin:0 0 3px;letter-spacing:-.01em}
+  .org{font-size:14px;color:var(--ink2);margin:0 0 11px}
+  .row ul{margin:0;padding:0;list-style:none}
+  .row li{font-size:15px;line-height:1.7;color:var(--ink2);margin:0 0 6px;
+    padding-left:14px;position:relative}
+  .row li:before{content:"";position:absolute;left:0;top:11px;width:5px;height:1px;
+    background:var(--accent);opacity:.6}
+  .row p.body{font-size:15px;line-height:1.7;color:var(--ink2);margin:0}
+
+  /* --- affordance stack --- */
+  .cue{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+    color:var(--accent);margin:0 0 13px}
+  .cue svg{flex:none}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+  .chip{font:inherit;font-size:13.5px;font-weight:500;color:var(--chipink);
+    background:var(--chipbg);border:1px solid var(--chipbd);border-radius:8px;
+    padding:8px 13px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;
+    box-shadow:0 1px 0 rgba(0,0,0,.05);transition:all .14s}
+  .chip .cv{color:var(--accent);font-size:15px;line-height:1}
+  .chip:hover{border-color:var(--accent);transform:translateY(-1px);
+    box-shadow:0 2px 5px rgba(0,0,0,.11)}
+  .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);
+    color:var(--onaccent);box-shadow:none;transform:none}
+  .chip[aria-pressed="true"] .cv{color:var(--onaccent)}
+  .chip:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+  .ans{border-left:3px solid var(--accent);padding-left:20px}
+  .ans .tag{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);
+    margin:0 0 9px}
+  .ans .tag.no{color:var(--ink3)}
+  .ans .q{font-size:15px;font-weight:600;margin:0 0 8px}
+  .ans .a{font-size:15px;line-height:1.75;color:var(--ink2);margin:0}
+  .ans .src{font-size:12px;color:var(--ink3);margin:14px 0 0;letter-spacing:.01em}
+  .note{font-size:12px;color:var(--ink3);margin:22px 0 0;line-height:1.6}
+
+  footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--ink);
+    font-size:12px;color:var(--ink3);line-height:1.6}
+
+  @media (max-width:620px){
+    .wrap{padding:44px 20px 72px}
+    .name{font-size:34px}
+    .row{grid-template-columns:1fr;gap:0}
+    .lab{margin:0 0 8px}
+  }
+  @media print{
+    body{background:#fff;color:#000;font-size:11pt}
+    .wrap{max-width:none;padding:0}
+    .chips,.note,.cue{display:none}
+    .ans{border-left:1px solid #000;page-break-inside:avoid}
+    .ans .tag,.ans .a{color:#000}
+    .row{page-break-inside:avoid}
+    .row li:before{background:#000}
+    a{color:#000;text-decoration:none}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header>
-  <h1>Jesse Zesbaugh</h1>
-  <p class="sub">Operator and founder. Security, compliance and platform operations.</p>
-  <p class="meta">Kirkland, WA &middot; <a href="mailto:Jzesbaugh@icloud.com">Jzesbaugh@icloud.com</a></p>
-  <p class="meta" style="margin-top:4px">B.S. Cybersecurity and Information Assurance, expected October 2026 &middot; <a href="https://www.linkedin.com/in/jzesbaugh">LinkedIn</a> &middot; <a href="https://github.com/jzesbaugh">GitHub</a></p>
+  <p class="name">Jesse Zesbaugh</p>
+  <p class="contact">
+    <span>Kirkland, WA</span>
+    <a href="mailto:Jzesbaugh@icloud.com">Jzesbaugh@icloud.com</a>
+    <a href="https://www.linkedin.com/in/jzesbaugh">LinkedIn</a>
+    <a href="https://github.com/jzesbaugh">GitHub</a>
+  </p>
 </header>
 
-<p class="lede">Twenty years building and running small organizations. Consistently the person
-responsible for the functions a small organization cannot afford to specialize: growth,
-communications, product, compliance and operations.</p>
+<p class="lede">Twenty years building and running small organizations, most often as the person
+responsible for the functions too small to justify a specialist: growth, communications, product,
+compliance and operations.</p>
 
-<h2>Ask about my experience</h2>
+<p class="sec">Ask</p>
 
-<div class="ask">
-  <p style="margin:0;font-size:14px;color:var(--ink2)">Answers are drawn from a verified record and cite their source. Questions outside that record are declined rather than guessed at.</p>
-  <div class="chips" id="chips"></div>
-  <div class="ans" id="ans"></div>
-  <p class="note"><span aria-hidden="true">&#9679;</span> No model call, no generated text. Every answer below was written in advance and is shown verbatim.</p>
+<div class="row" style="border-bottom:none;padding-bottom:0">
+  <p class="lab">Verified</p>
+  <div>
+    <p class="cue">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9 10a3 3 0 1 1 4 2.8c-.6.3-1 .9-1 1.6v.6"/><circle cx="12" cy="18" r=".6" fill="currentColor"/></svg>
+      Click a question to see the answer
+    </p>
+    <div class="chips" id="chips"></div>
+    <div class="ans" id="ans"></div>
+    <p class="note">Answers are written in advance and shown verbatim. There is no model call
+      and nothing is generated, so this page cannot invent a credential. Questions outside the
+      record are declined.</p>
+  </div>
 </div>
 
-<h2>Experience</h2>
+<p class="sec">Experience</p>
 
-<div class="role">
-  <p class="t">Technical Lead, Venues &mdash; Encore Global</p>
-  <p class="o">February 2024 to present &middot; held concurrently with full-time degree study</p>
-  <ul>
-    <li>Event technology across Seattle-area venues including the Seattle Convention Center and Hyatt Regency Seattle</li>
-    <li>Directs crews of up to five across roughly 150 events a year; largest 1,000+ attendees</li>
-    <li>Commissioned the full AV inventory for a new luxury property before opening</li>
-    <li>Recognized six times by five different colleagues</li>
-  </ul>
+<div class="row">
+  <p class="lab">2024 &mdash;</p>
+  <div>
+    <p class="ttl">Technical Lead, Venues</p>
+    <p class="org"><a href="https://www.encoreglobal.com">Encore Global</a> at the InterContinental Bellevue at The Avenue &middot; concurrent with full-time degree study</p>
+    <ul>
+      <li>Based at the InterContinental Bellevue, the brand's first Pacific Northwest property; commissioned its full AV inventory before the hotel opened</li>
+      <li>Also covers the Seattle Convention Center, Hyatt Regency Seattle, The Edgewater and other regional venues</li>
+      <li>Directs crews of up to five across roughly 150 events a year; largest 1,000+ attendees</li>
+      <li>Networked audio over IP, video switching, streaming and hybrid production</li>
+      <li>Recognized six times by five different colleagues</li>
+    </ul>
+  </div>
 </div>
 
-<div class="role">
-  <p class="t">Co-Founder &mdash; <a href="https://www.seattlevegangroup.org">Seattle Vegan Group</a></p>
-  <p class="o">September 2024 to present &middot; member-owned grocery co-operative in formation</p>
-  <ul>
-    <li>Steering committee for a member-owned specialty grocery co-operative serving the Seattle and I-5 corridor market</li>
-    <li>Built a community of 280+ newsletter subscribers and 150+ Discord members ahead of any storefront</li>
-    <li>Working with counsel on entity structure and the Washington State intrastate securities exemption pathway for a future member capital raise</li>
-    <li>Sole administrator of the organisation's registrar, DNS, edge security, hosting, email and member data</li>
-    <li>Built and shipped the restaurant guide web app</li>
-  </ul>
+<div class="row">
+  <p class="lab">2024 &mdash;</p>
+  <div>
+    <p class="ttl">Co-Founder</p>
+    <p class="org"><a href="https://www.seattlevegangroup.org">Seattle Vegan Group</a> &middot; member-owned grocery co-operative in formation</p>
+    <ul>
+      <li>Steering committee for a specialty grocery co-operative serving the Seattle and I-5 corridor market</li>
+      <li>Built a community of 280+ newsletter subscribers and 150+ Discord members ahead of any storefront</li>
+      <li>Working with counsel on entity structure and the Washington State intrastate securities exemption pathway</li>
+      <li>Sole administrator of the organization's registrar, DNS, edge security, hosting, email and member data</li>
+      <li>Built and shipped the restaurant guide web app</li>
+    </ul>
+  </div>
 </div>
 
-<div class="role">
-  <p class="t">Chief Information Officer and Partner &mdash; <a href="https://cannamls.com">CannaMLS</a></p>
-  <p class="o">2019 to 2022 &middot; national marketplace for licensed business and real-estate transactions &middot; still operating</p>
-  <ul>
-    <li>Built from nothing to a national platform carrying $3.5B+ in listed assets at peak</li>
-    <li>Regulatory liaison across four states; every inquiry closed with no violation found</li>
-    <li>Drafted a compliance disclaimer and obtained a state regulator's approval before deployment</li>
-    <li>Operated 100% pre-publication review of all listings</li>
-    <li>Owned access control, account administration, privacy and third-party vendor risk</li>
-    <li>Designed the marketplace user experience</li>
-  </ul>
+<div class="row">
+  <p class="lab">2013&ndash;2022</p>
+  <div>
+    <p class="ttl">Chief Information Officer and Partner</p>
+    <p class="org"><a href="https://cannamls.com">CannaMLS</a> &middot; national marketplace for licensed business and real-estate transactions &middot; still operating</p>
+    <ul>
+      <li>Joined early as Communications Director; later CIO and partner</li>
+      <li>Built from nothing to a national platform carrying $3.5B+ in listed assets at peak</li>
+      <li>Regulatory liaison across four states; every inquiry closed with no violation found</li>
+      <li>Drafted a compliance disclaimer and obtained a state regulator's approval before deployment</li>
+      <li>Operated 100% pre-publication review of all listings</li>
+      <li>Owned access control, account administration, privacy and third-party vendor risk</li>
+    </ul>
+  </div>
 </div>
 
-<div class="role">
-  <p class="t">Benefits Hub Coach &mdash; <a href="https://www.uwkc.org/benefitshub/">United Way of King County</a> / AmeriCorps</p>
-  <p class="o">2022 to 2023 &middot; UW Bothell and Cascadia College</p>
-  <ul>
-    <li>Enrolled students in federal and state benefit programs including SNAP, WIC and health coverage</li>
-    <li>Built a pathway using special-circumstance FAFSA amendments for students with parental absence or abuse</li>
-  </ul>
+<div class="row">
+  <p class="lab">2022&ndash;2023</p>
+  <div>
+    <p class="ttl">Benefits Hub Coach</p>
+    <p class="org"><a href="https://www.uwkc.org/benefitshub/">United Way of King County</a> / AmeriCorps &middot; UW Bothell and Cascadia College</p>
+    <ul>
+      <li>Enrolled students in federal and state benefit programs including SNAP, WIC and health coverage</li>
+      <li>Built a pathway using special-circumstance FAFSA amendments for students with parental absence or abuse</li>
+    </ul>
+  </div>
 </div>
 
-<div class="role">
-  <p class="t">Partner, Producer and Videographer &mdash; <a href="https://www.seattle-videography.com/about">Seattle Videography</a></p>
-  <p class="o">2005 to 2025, now Emeritus &middot; co-founded and ran for over fifteen years &middot; still operating</p>
-  <ul>
-    <li>Enterprise clients under NDA including Microsoft, Intel and HP</li>
-    <li>400+ interviews; subjects included a US Secretary of the Interior</li>
-    <li>Credited producer on two theatrically released features</li>
-    <li>Handed operational control to a partner in order to return to full-time study</li>
-  </ul>
+<div class="row">
+  <p class="lab">2005&ndash;2025</p>
+  <div>
+    <p class="ttl">Partner, Producer and Videographer</p>
+    <p class="org"><a href="https://www.seattle-videography.com/about">Seattle Videography</a> &middot; now Emeritus &middot; still operating</p>
+    <ul>
+      <li>Co-founded and ran a Seattle production company for over fifteen years</li>
+      <li>Enterprise clients under NDA including Microsoft, Intel and HP</li>
+      <li>400+ interviews; subjects included a US Secretary of the Interior</li>
+      <li>Handed operational control to a partner in order to return to full-time study</li>
+    </ul>
+  </div>
 </div>
 
-<h2>Credentials and selected work</h2>
+<div class="row">
+  <p class="lab">2008&ndash;2016</p>
+  <div>
+    <p class="ttl">Film Producer</p>
+    <p class="org">Pendragon Pictures</p>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/War_of_the_Worlds:_The_True_Story"><em>War of the Worlds: The True Story</em></a> (2012) &mdash; reviewed by the Los Angeles Times and The Hollywood Reporter; 50-theatre tour; completed an Academy Award qualifying run</li>
+      <li><a href="https://en.wikipedia.org/wiki/10_Days_in_a_Madhouse"><em>10 Days in a Madhouse</em></a> (2015) &mdash; Christopher Lambert, Kelly Le Brock; opened the Bentonville Film Festival</li>
+    </ul>
+  </div>
+</div>
 
-<div class="grid">
-  <div class="cardlet"><p><strong>B.S. Cybersecurity and Information Assurance</strong>Western Governors University, expected October 2026. NCAE-C designated program.</p></div>
-  <div class="cardlet"><p><strong>Associate of Arts, Honors with Distinction</strong>Shoreline Community College. 3.7 GPA, Phi Theta Kappa.</p></div>
-  <div class="cardlet"><p><strong>22 certifications</strong>CompTIA CSAP, CySA+, Security+, Network+. ISC2 SSCP. Linux Professional Institute, ITIL.</p></div>
-  <div class="cardlet"><p><strong>Published methodology</strong>Open-source blind-evaluation protocol for LLM instruction sets, with a documented case where testing falsified my own design prediction. <a href="https://github.com/jzesbaugh/llm-instruction-evals">Source</a></p></div>
-  <div class="cardlet"><p><strong>Two feature film credits</strong>Credited producer on <a href="https://en.wikipedia.org/wiki/War_of_the_Worlds:_The_True_Story"><em>War of the Worlds: The True Story</em></a> (2012), reviewed by the Los Angeles Times and The Hollywood Reporter, and <a href="https://en.wikipedia.org/wiki/10_Days_in_a_Madhouse"><em>10 Days in a Madhouse</em></a> (2015).</p></div>
-  <div class="cardlet"><p><strong>Shipped web app</strong>Seattle Vegan Restaurant Guide: a zero-dependency embeddable widget with search, filtering and offline install. Open-sourced MIT with a replication guide. <a href="https://www.seattlevegangroup.org/guide">Live</a> &middot; <a href="https://github.com/jzesbaugh/svg-public">Source</a></p></div>
+<p class="sec">Education</p>
+
+<div class="row">
+  <p class="lab">Oct 2026</p>
+  <div>
+    <p class="ttl">B.S. Cybersecurity and Information Assurance</p>
+    <p class="org">Western Governors University &middot; expected</p>
+    <p class="body">NCAE-C designated program. Capstone: deployed PKI, TLS and edge security controls on a live non-profit website, including third-party risk assessment and a recurring annual audit.</p>
+  </div>
+</div>
+
+<div class="row">
+  <p class="lab">2017&ndash;2019</p>
+  <div>
+    <p class="ttl">Associate of Arts, Honors with Distinction</p>
+    <p class="org">Shoreline Community College</p>
+    <p class="body">3.7 GPA &middot; Phi Theta Kappa &middot; undergraduate research &middot; statistics and programming tutor</p>
+  </div>
+</div>
+
+<div class="row">
+  <p class="lab">2016&ndash;2026</p>
+  <div>
+    <p class="ttl">Certifications &mdash; 22 held</p>
+    <p class="body">CompTIA Security Analytics Professional, CySA+, Security+, Secure Infrastructure Specialist, Network+, IT Operations Specialist, Project+ &middot; ISC2 SSCP &middot; Linux Professional Institute &middot; ITIL Foundation &middot; Audinate Dante 1 and 2. CompTIA PenTest+ in progress.</p>
+  </div>
+</div>
+
+<p class="sec">Selected work</p>
+
+<div class="row">
+  <p class="lab">Open source</p>
+  <div>
+    <p class="ttl">Blind evaluation protocol for LLM instruction sets</p>
+    <p class="body">Negative controls, contamination hygiene, a four-class failure taxonomy and regression baselines. Includes a documented case where testing falsified my own design prediction. <a href="https://github.com/jzesbaugh/llm-instruction-evals">Source</a></p>
+  </div>
+</div>
+
+<div class="row">
+  <p class="lab">Shipped</p>
+  <div>
+    <p class="ttl">Seattle Vegan Restaurant Guide</p>
+    <p class="body">A zero-dependency embeddable web app with search, filtering and offline install. Open-sourced MIT with documentation enabling other cities to replicate it. <a href="https://www.seattlevegangroup.org/guide">Live</a> &middot; <a href="https://github.com/jzesbaugh/svg-public">Source</a></p>
+  </div>
 </div>
 
 <footer>
-  <p>This page answers from a fixed record. It does not generate text and cannot invent a credential. Source available on request.</p>
+  <p>This page answers from a fixed record. It does not generate text and cannot invent a credential.</p>
 </footer>
 
 </div>
 
 <script>
+/* Ordered general to nuanced; declines last. */
 var DATA = [
-  {k:"Regulatory and compliance work", ok:1,
-   q:"Have you worked with regulators?",
-   a:"Yes, directly and repeatedly. As CIO of CannaMLS I acted as regulatory liaison across four states after a third party reported the platform as operating without a broker licence. I required every regulator to submit their request in writing from a verified .gov address, supplied scoped information, and closed all four inquiries with no violation found. Separately I identified a gap in our listing disclosures, drafted the corrective language myself, and obtained the state regulator's approval before we deployed it.",
-   s:["CannaMLS, Chief Information Officer and Partner, 2019 to 2022","Two documented incidents, resolved without counsel"]},
-
-  {k:"Incident response", ok:1,
-   q:"Tell me about an incident you handled.",
-   a:"Two, and one of them I caused. The four-state regulatory inquiry above resolved with no violation found. During my degree capstone, DNS changes made while deploying Cloudflare broke IMAP email for every user. I assessed severity accurately as degraded rather than down, escalated to the vendor, obtained root cause, and documented the whole thing in the graded submission rather than leaving it out.",
-   s:["CannaMLS, 2019 to 2022","WGU capstone implementation report, August 2025"]},
-
-  {k:"Leading people", ok:1,
-   q:"Have you led people?",
-   a:"At event level rather than as a line manager. At Encore I direct crews of up to five across roughly 150 events a year, assigning positions and running the room. I do not own scheduling or performance management, which is a job classification boundary rather than a limit on the work. Before that I co-founded and ran companies where I led small teams directly.",
-   s:["Encore Global, Technical Lead Venues, 2024 to present"]},
-
-  {k:"Why the career change", ok:1,
+  {k:"Career change", ok:1,
    q:"Why move from media into IT?",
    a:"I did not arrive at IT from a classroom. I arrived at the classroom from IT. For three years at CannaMLS I ran the platform side of a national marketplace: access control, account administration, privacy and data retention, vendor risk, regulatory liaison and incidents, because at that company size that function is one person. I returned to full-time study in 2022 to formalize it, and deliberately stepped back from running businesses into a defined technical role so the coursework would actually get done. I treat security as baseline IT rather than a separate discipline. If someone is running infrastructure without it, that is the thing worth worrying about.",
-   s:["CannaMLS, 2019 to 2022","WGU, September 2022 to present"]},
+   s:"CannaMLS, 2019 to 2022 · WGU, September 2022 to present"},
 
-  {k:"Technical range", ok:1,
+  {k:"What I've built", ok:1,
    q:"What have you actually built or run?",
-   a:"For my capstone I deployed PKI and TLS with edge security controls on a live non-profit website, then tuned the bot management so legitimate crawlers still had access. I still administer that organization's registrar, DNS, hosting, email and member data. At CannaMLS I designed the marketplace user experience and managed platform permissions and accounts. At Encore I work on networked audio over IP, which means VLANs, multicast and switch configuration.",
-   s:["WGU capstone, 2025","Seattle Vegan Group, 2024 to present","Encore Global, 2024 to present"]},
-
-  {k:"AI experience", ok:1,
-   q:"What is your AI experience?",
-   a:"Evaluation and governance rather than model building, and I want to be precise about that. I authored and published an open-source blind-evaluation protocol for LLM instruction sets, with negative controls, contamination hygiene and a four-class failure taxonomy. It includes a case study where my own design prediction was falsified by testing and corrected the same day. What I have not done is train models, handle datasets, or work with named ML frameworks.",
-   s:["github.com/jzesbaugh/llm-instruction-evals, MIT licensed"]},
+   a:"For my capstone I deployed PKI and TLS with edge security controls on a live non-profit website, then tuned the bot management so legitimate crawlers still had access. I still administer that organization's registrar, DNS, hosting, email and member data. At CannaMLS I designed the marketplace user experience and managed platform permissions and accounts. At Encore, based at the InterContinental Bellevue, I work on networked audio over IP, which means VLANs, multicast and switch configuration.",
+   s:"WGU capstone, 2025 · Seattle Vegan Group · Encore Global"},
 
   {k:"Starting things", ok:1,
-   q:"Have you built an organisation from nothing?",
-   a:"Four, and three of them outlived my involvement. Seattle Videography in 2005, which I ran for over fifteen years and handed to a partner; it is still trading and still lists me as Emeritus. CannaMLS, built from nothing into a national marketplace carrying billions in listed assets at peak; it is still operating four years after I left. A snowboard review channel in 2008 that has since passed 1,500 videos. And currently Seattle Vegan Group, a member-owned grocery co-operative in formation, where I sit on the steering committee. We built a community of 280 newsletter subscribers and 150 Discord members before there is anything to sell them, and I am working with counsel on entity structure and the Washington State securities exemption pathway for a future member capital raise. Nothing is filed yet.",
-   s:["Seattle Vegan Group, 2024 to present","CannaMLS, 2013 to 2022","Seattle Videography, 2005 to 2025","Board Insiders, 2008 to 2013"]},
+   q:"Have you built an organization from nothing?",
+   a:"Four, and three of them outlived my involvement. Seattle Videography in 2005, which I ran for over fifteen years and handed to a partner; it is still trading and still lists me as Emeritus. CannaMLS, where I joined early as Communications Director and later became CIO and partner; it is still operating four years after I left. A snowboard review channel in 2008 that has since passed 1,500 videos. And currently Seattle Vegan Group, a member-owned grocery co-operative in formation. We built a community of 280 newsletter subscribers and 150 Discord members before there is anything to sell them. Nothing is filed yet.",
+   s:"Seattle Vegan Group · CannaMLS · Seattle Videography · Board Insiders"},
 
-  {k:"Public sector fit", ok:1,
+  {k:"Regulators", ok:1,
+   q:"Have you worked with regulators?",
+   a:"Yes, directly and repeatedly. As CIO of CannaMLS I acted as regulatory liaison across four states after a third party reported the platform as operating without a broker license. I required every regulator to submit their request in writing from a verified .gov address, supplied scoped information, and closed all four inquiries with no violation found. Separately I identified a gap in our listing disclosures, drafted the corrective language myself, and obtained the state regulator's approval before we deployed it.",
+   s:"CannaMLS, 2019 to 2022 · two documented incidents, resolved without counsel"},
+
+  {k:"Incidents", ok:1,
+   q:"Tell me about an incident you handled.",
+   a:"Two, and one of them I caused. The four-state regulatory inquiry above resolved with no violation found. During my degree capstone, DNS changes made while deploying Cloudflare broke IMAP email for every user. I assessed severity accurately as degraded rather than down, escalated to the vendor, obtained root cause, and documented the whole thing in the graded submission rather than leaving it out.",
+   s:"CannaMLS, 2019 to 2022 · WGU capstone implementation report, August 2025"},
+
+  {k:"Public sector", ok:1,
    q:"Why are you looking at public sector work?",
    a:"I want stability and a real retirement, and work that holds up in a downturn. I have a year of direct public service as a Benefits Hub Coach through AmeriCorps, administering federal and state benefit programs at two public institutions, and my degree is from an NCAE-C designated program. I live in King County.",
-   s:["United Way of King County / AmeriCorps, 2022 to 2023"]},
+   s:"United Way of King County / AmeriCorps, 2022 to 2023"},
+
+  {k:"AI", ok:1,
+   q:"What is your AI experience?",
+   a:"Evaluation and governance rather than model building, and I want to be precise about that. I authored and published an open-source blind-evaluation protocol for LLM instruction sets, with negative controls, contamination hygiene and a four-class failure taxonomy. It includes a case study where my own design prediction was falsified by testing and corrected the same day. What I have not done is train models, handle datasets, or work with named ML frameworks.",
+   s:"github.com/jzesbaugh/llm-instruction-evals, MIT licensed"},
 
   {k:"Kubernetes", ok:0,
    q:"What is your Kubernetes experience?",
    a:"There is nothing in my record about Kubernetes, so I am not going to answer that. My infrastructure experience is edge security and DNS on Cloudflare, hosting and email administration, and networked audio over IP. Container orchestration is not part of it.",
-   s:[]},
+   s:""},
 
-  {k:"Managing a budget", ok:0,
+  {k:"Budget", ok:0,
    q:"Have you managed a departmental budget?",
-   a:"My record does not contain budget figures I can stand behind, so I will not estimate. I have run cost-constrained projects, including selecting a zero-cost security solution for a non-profit after comparing paid alternatives, but that is procurement judgement rather than budget ownership.",
-   s:[]}
+   a:"My record does not contain budget figures I can stand behind, so I will not estimate. I have run cost-constrained projects, including selecting a zero-cost security solution for a non-profit after comparing paid alternatives, but that is procurement judgment rather than budget ownership.",
+   s:""}
 ];
 
 (function(){
-  var chips = document.getElementById('chips');
-  var ans = document.getElementById('ans');
+  var chips=document.getElementById('chips'), ans=document.getElementById('ans'), btns=[];
 
-  DATA.forEach(function(d, i){
-    var b = document.createElement('button');
-    b.textContent = d.k;
-    b.setAttribute('aria-controls','ans');
-    b.addEventListener('click', function(){ show(i); });
-    chips.appendChild(b);
-  });
-
-  function esc(t){ var e=document.createElement('div'); e.textContent=t; return e.innerHTML; }
+  function esc(t){var e=document.createElement('div');e.textContent=t;return e.innerHTML;}
 
   function show(i){
-    var d = DATA[i];
-    var tag = d.ok
-      ? '<span class="tag y">From record</span>'
-      : '<span class="tag n">Not in record</span>';
-    var src = '';
-    if(d.s.length){
-      src = '<div class="src">' + d.s.map(function(x){
-        return '<p>' + esc(x) + '</p>';
-      }).join('') + '</div>';
-    }
-    ans.innerHTML = tag + '<p class="q">' + esc(d.q) + '</p><p class="a">' + esc(d.a) + '</p>' + src;
-    ans.classList.add('on');
+    var d=DATA[i];
+    btns.forEach(function(b,j){b.setAttribute('aria-pressed', j===i?'true':'false');});
+    ans.innerHTML='<p class="tag'+(d.ok?'':' no')+'">'+(d.ok?'From record':'Not in record')+'</p>'
+      +'<p class="q">'+esc(d.q)+'</p>'
+      +'<p class="a">'+esc(d.a)+'</p>'
+      +(d.s?'<p class="src">'+esc(d.s)+'</p>':'');
   }
+
+  DATA.forEach(function(d,i){
+    var b=document.createElement('button');
+    b.className='chip'; b.type='button';
+    b.innerHTML='<span class="cv" aria-hidden="true">&rsaquo;</span>'+esc(d.k);
+    b.setAttribute('aria-pressed','false'); b.setAttribute('aria-controls','ans');
+    b.addEventListener('click',function(){show(i);});
+    chips.appendChild(b); btns.push(b);
+  });
+
+  show(0);
 })();
 </script>
 </body>
