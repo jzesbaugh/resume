@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jesse Zesbaugh</title>
+<!--
+  WORK IN PROGRESS - 2026-08-07
+  Standalone single-file interactive resume. No dependencies, no build step.
+  Opens directly in a browser from disk, or drop into a GitHub Pages repo as index.html.
+
+  DESIGN INTENT: answers are PRE-WRITTEN, not generated. There is no model call and no
+  API key. The refusal behaviour is guaranteed by matching logic, not hoped for.
+  That is deliberate - a resume must never improvise about credentials.
+
+  CONTACT: email only, by choice. Phone and street address are deliberately NOT here -
+  this page is public and both would be scraped.
+
+  BEFORE PUBLISHING:
+    - Attach the PDF and update the download link
+    - Change "expected October 2026" once the degree confers
+    - Run the GATEKEEPER in CAREER_REFERENCE.md
+
+  TO HOST: rename to index.html, put at repo root, enable GitHub Pages.
+-->
+<style>
+  :root{
+    --bg:#fbfbf9; --card:#ffffff; --ink:#1c1c1a; --ink2:#5f5e5a; --ink3:#8b8a85;
+    --line:#e5e4df; --accent:#185fa5; --accent-bg:#e6f1fb;
+    --ok:#3b6d11; --ok-bg:#eaf3de; --warn:#854f0b; --warn-bg:#faeeda;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14140f; --card:#1f1f1c; --ink:#eceae3; --ink2:#a8a69f; --ink3:#7a7873;
+      --line:#33322d; --accent:#85b7eb; --accent-bg:#0c447c;
+      --ok:#97c459; --ok-bg:#27500a; --warn:#efa027; --warn-bg:#633806;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:40px 24px 80px}
+  header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:28px}
+  h1{font-size:28px;font-weight:600;margin:0 0 6px;letter-spacing:-.01em}
+  .sub{color:var(--ink2);font-size:15px;margin:0}
+  .meta{color:var(--ink3);font-size:14px;margin:10px 0 0}
+  h2{font-size:15px;font-weight:600;margin:36px 0 14px;letter-spacing:.02em;
+    text-transform:uppercase;color:var(--ink2)}
+  .lede{font-size:17px;line-height:1.6;margin:0 0 6px}
+  .ask{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+  button{font:inherit;font-size:13px;color:var(--ink);background:transparent;
+    border:1px solid var(--line);border-radius:8px;padding:7px 13px;cursor:pointer}
+  button:hover{border-color:var(--ink3)}
+  button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .ans{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);display:none}
+  .ans.on{display:block}
+  .tag{display:inline-block;font-size:12px;padding:3px 10px;border-radius:6px;
+    margin-bottom:10px;font-weight:500}
+  .tag.y{background:var(--ok-bg);color:var(--ok)}
+  .tag.n{background:var(--warn-bg);color:var(--warn)}
+  .q{font-weight:600;margin:0 0 8px;font-size:16px}
+  .a{margin:0;font-size:15px;line-height:1.7}
+  .src{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+  .src p{margin:0 0 4px;font-size:13px;color:var(--ink2)}
+  .note{font-size:13px;color:var(--ink3);margin:16px 0 0;display:flex;gap:7px}
+  .role{margin:0 0 22px}
+  .role .t{font-weight:600;font-size:16px;margin:0}
+  .role .o{color:var(--ink2);font-size:14px;margin:2px 0 8px}
+  .role ul{margin:0;padding-left:20px}
+  .role li{font-size:15px;margin-bottom:5px;color:var(--ink2)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+  .cardlet{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .cardlet p{margin:0;font-size:14px;color:var(--ink2)}
+  .cardlet strong{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--ink3)}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Jesse Zesbaugh</h1>
+  <p class="sub">Operator and founder. Security, compliance and platform operations.</p>
+  <p class="meta">Kirkland, WA &middot; <a href="mailto:Jzesbaugh@icloud.com">Jzesbaugh@icloud.com</a></p>
+  <p class="meta" style="margin-top:4px">B.S. Cybersecurity and Information Assurance, expected October 2026 &middot; <a href="https://www.linkedin.com/in/jzesbaugh">LinkedIn</a> &middot; <a href="https://github.com/jzesbaugh">GitHub</a></p>
+</header>
+
+<p class="lede">Twenty years building and running small organizations. Consistently the person
+responsible for the functions a small organization cannot afford to specialize: growth,
+communications, product, compliance and operations.</p>
+
+<h2>Ask about my experience</h2>
+
+<div class="ask">
+  <p style="margin:0;font-size:14px;color:var(--ink2)">Answers are drawn from a verified record and cite their source. Questions outside that record are declined rather than guessed at.</p>
+  <div class="chips" id="chips"></div>
+  <div class="ans" id="ans"></div>
+  <p class="note"><span aria-hidden="true">&#9679;</span> No model call, no generated text. Every answer below was written in advance and is shown verbatim.</p>
+</div>
+
+<h2>Experience</h2>
+
+<div class="role">
+  <p class="t">Technical Lead, Venues &mdash; Encore Global</p>
+  <p class="o">February 2024 to present &middot; held concurrently with full-time degree study</p>
+  <ul>
+    <li>Event technology across Seattle-area venues including the Seattle Convention Center and Hyatt Regency Seattle</li>
+    <li>Directs crews of up to five across roughly 150 events a year; largest 1,000+ attendees</li>
+    <li>Commissioned the full AV inventory for a new luxury property before opening</li>
+    <li>Recognized six times by five different colleagues</li>
+  </ul>
+</div>
+
+<div class="role">
+  <p class="t">Chief Information Officer and Partner &mdash; CannaMLS</p>
+  <p class="o">2019 to 2022 &middot; national marketplace for licensed business and real-estate transactions</p>
+  <ul>
+    <li>Regulatory liaison across four states; every inquiry closed with no violation found</li>
+    <li>Drafted a compliance disclaimer and obtained a state regulator's approval before deployment</li>
+    <li>Operated 100% pre-publication review of all listings</li>
+    <li>Owned access control, account administration, privacy and third-party vendor risk</li>
+    <li>Designed the marketplace user experience</li>
+  </ul>
+</div>
+
+<div class="role">
+  <p class="t">Benefits Hub Coach &mdash; United Way of King County / AmeriCorps</p>
+  <p class="o">2022 to 2023 &middot; UW Bothell and Cascadia College</p>
+  <ul>
+    <li>Enrolled students in federal and state benefit programs including SNAP, WIC and health coverage</li>
+    <li>Built a pathway using special-circumstance FAFSA amendments for students with parental absence or abuse</li>
+  </ul>
+</div>
+
+<div class="role">
+  <p class="t">Partner, Producer and Videographer &mdash; Seattle Videography</p>
+  <p class="o">2005 to 2025, now Emeritus &middot; co-founded and ran for over fifteen years</p>
+  <ul>
+    <li>Enterprise clients under NDA including Microsoft, Intel and HP</li>
+    <li>400+ interviews; subjects included a US Secretary of the Interior</li>
+    <li>Credited producer on two theatrically released features</li>
+  </ul>
+</div>
+
+<h2>Education and credentials</h2>
+
+<div class="grid">
+  <div class="cardlet"><p><strong>B.S. Cybersecurity and Information Assurance</strong>Western Governors University, expected October 2026. NCAE-C designated program.</p></div>
+  <div class="cardlet"><p><strong>Associate of Arts, Honors with Distinction</strong>Shoreline Community College. 3.7 GPA, Phi Theta Kappa.</p></div>
+  <div class="cardlet"><p><strong>22 certifications</strong>CompTIA CSAP, CySA+, Security+, Network+. ISC2 SSCP. Linux Professional Institute, ITIL.</p></div>
+  <div class="cardlet"><p><strong>Published methodology</strong>Open-source blind-evaluation protocol for LLM instruction sets, with a falsified-prediction case study.</p></div>
+</div>
+
+<footer>
+  <p>This page answers from a fixed record. It does not generate text and cannot invent a credential. Source available on request.</p>
+</footer>
+
+</div>
+
+<script>
+var DATA = [
+  {k:"Regulatory and compliance work", ok:1,
+   q:"Have you worked with regulators?",
+   a:"Yes, directly and repeatedly. As CIO of CannaMLS I acted as regulatory liaison across four states after a third party reported the platform as operating without a broker licence. I required every regulator to submit their request in writing from a verified .gov address, supplied scoped information, and closed all four inquiries with no violation found. Separately I identified a gap in our listing disclosures, drafted the corrective language myself, and obtained the state regulator's approval before we deployed it.",
+   s:["CannaMLS, Chief Information Officer and Partner, 2019 to 2022","Two documented incidents, resolved without counsel"]},
+
+  {k:"Incident response", ok:1,
+   q:"Tell me about an incident you handled.",
+   a:"Two, and one of them I caused. The four-state regulatory inquiry above resolved with no violation found. During my degree capstone, DNS changes made while deploying Cloudflare broke IMAP email for every user. I assessed severity accurately as degraded rather than down, escalated to the vendor, obtained root cause, and documented the whole thing in the graded submission rather than leaving it out.",
+   s:["CannaMLS, 2019 to 2022","WGU capstone implementation report, August 2025"]},
+
+  {k:"Leading people", ok:1,
+   q:"Have you led people?",
+   a:"At event level rather than as a line manager. At Encore I direct crews of up to five across roughly 150 events a year, assigning positions and running the room. I do not own scheduling or performance management, which is a job classification boundary rather than a limit on the work. Before that I co-founded and ran companies where I led small teams directly.",
+   s:["Encore Global, Technical Lead Venues, 2024 to present"]},
+
+  {k:"Why the career change", ok:1,
+   q:"Why move from media into security?",
+   a:"I did not arrive at security from a classroom. I arrived at the classroom from security. For three years at CannaMLS I handled regulatory liaison, platform liability, access control, privacy, vendor risk, trust and safety, and incidents, because at that company size the security function is one person. I returned to full-time study in 2022 to formalize it, and deliberately stepped back from running businesses into a defined technical role so the coursework would actually get done.",
+   s:["CannaMLS, 2019 to 2022","WGU, September 2022 to present"]},
+
+  {k:"Technical range", ok:1,
+   q:"What have you actually built or run?",
+   a:"For my capstone I deployed PKI and TLS with edge security controls on a live non-profit website, then tuned the bot management so legitimate crawlers still had access. I still administer that organization's registrar, DNS, hosting, email and member data. At CannaMLS I designed the marketplace user experience and managed platform permissions and accounts. At Encore I work on networked audio over IP, which means VLANs, multicast and switch configuration.",
+   s:["WGU capstone, 2025","Seattle Vegan Group, 2024 to present","Encore Global, 2024 to present"]},
+
+  {k:"AI experience", ok:1,
+   q:"What is your AI experience?",
+   a:"Evaluation and governance rather than model building, and I want to be precise about that. I authored and published an open-source blind-evaluation protocol for LLM instruction sets, with negative controls, contamination hygiene and a four-class failure taxonomy. It includes a case study where my own design prediction was falsified by testing and corrected the same day. What I have not done is train models, handle datasets, or work with named ML frameworks.",
+   s:["github.com/jzesbaugh/llm-instruction-evals, MIT licensed"]},
+
+  {k:"Public sector fit", ok:1,
+   q:"Why are you looking at public sector work?",
+   a:"I want stability and a real retirement, and work that holds up in a downturn. I have a year of direct public service as a Benefits Hub Coach through AmeriCorps, administering federal and state benefit programs at two public institutions, and my degree is from an NCAE-C designated program. I live in King County.",
+   s:["United Way of King County / AmeriCorps, 2022 to 2023"]},
+
+  {k:"Kubernetes", ok:0,
+   q:"What is your Kubernetes experience?",
+   a:"There is nothing in my record about Kubernetes, so I am not going to answer that. My infrastructure experience is edge security and DNS on Cloudflare, hosting and email administration, and networked audio over IP. Container orchestration is not part of it.",
+   s:[]},
+
+  {k:"Managing a budget", ok:0,
+   q:"Have you managed a departmental budget?",
+   a:"My record does not contain budget figures I can stand behind, so I will not estimate. I have run cost-constrained projects, including selecting a zero-cost security solution for a non-profit after comparing paid alternatives, but that is procurement judgement rather than budget ownership.",
+   s:[]}
+];
+
+(function(){
+  var chips = document.getElementById('chips');
+  var ans = document.getElementById('ans');
+
+  DATA.forEach(function(d, i){
+    var b = document.createElement('button');
+    b.textContent = d.k;
+    b.setAttribute('aria-controls','ans');
+    b.addEventListener('click', function(){ show(i); });
+    chips.appendChild(b);
+  });
+
+  function esc(t){ var e=document.createElement('div'); e.textContent=t; return e.innerHTML; }
+
+  function show(i){
+    var d = DATA[i];
+    var tag = d.ok
+      ? '<span class="tag y">From record</span>'
+      : '<span class="tag n">Not in record</span>';
+    var src = '';
+    if(d.s.length){
+      src = '<div class="src">' + d.s.map(function(x){
+        return '<p>' + esc(x) + '</p>';
+      }).join('') + '</div>';
+    }
+    ans.innerHTML = tag + '<p class="q">' + esc(d.q) + '</p><p class="a">' + esc(d.a) + '</p>' + src;
+    ans.classList.add('on');
+  }
+})();
+</script>
+</body>
+</html>
