@@ -208,11 +208,11 @@ compliance and operations.</p>
     <p class="ttl">Co-Founder</p>
     <p class="org"><a href="https://www.seattlevegangroup.org">Seattle Vegan Group</a> &middot; member-owned grocery co-operative in formation</p>
     <ul>
-      <li>Steering committee for a specialty grocery co-operative serving the Seattle and I-5 corridor market</li>
+      <li><strong>Built and shipped the Seattle Vegan Restaurant Guide</strong>, a live zero-dependency web app, open-sourced MIT with documentation enabling other cities to replicate it</li>
+      <li>Sole administrator of the organization's registrar, DNS, edge security, hosting, email and member data; CMS access delegated to other project leaders</li>
       <li>Built a community of 280+ newsletter subscribers and 150+ Discord members ahead of any storefront</li>
+      <li>Steering committee for a specialty grocery co-operative serving the Seattle and I-5 corridor market</li>
       <li>Working with counsel on entity structure and the Washington State intrastate securities exemption pathway</li>
-      <li>Sole administrator of the organization's registrar, DNS, edge security, hosting, email and member data</li>
-      <li>Built and shipped the restaurant guide web app</li>
     </ul>
   </div>
 </div>
@@ -278,7 +278,7 @@ compliance and operations.</p>
   <div>
     <p class="ttl">B.S. Cybersecurity and Information Assurance</p>
     <p class="org">Western Governors University &middot; expected</p>
-    <p class="body">NCAE-C designated program. Capstone: deployed PKI, TLS and edge security controls on a live non-profit website, including third-party risk assessment and a recurring annual audit.</p>
+    <p class="body">NCAE-C designated program. Capstone was carried out on a live non-profit site I already administer, rather than in a lab.</p>
   </div>
 </div>
 
@@ -302,18 +302,18 @@ compliance and operations.</p>
 <p class="sec">Selected work</p>
 
 <div class="row">
-  <p class="lab">Open source</p>
+  <p class="lab">In use</p>
   <div>
-    <p class="ttl">Blind evaluation protocol for LLM instruction sets</p>
-    <p class="body">Negative controls, contamination hygiene, a four-class failure taxonomy and regression baselines. Includes a documented case where testing falsified my own design prediction. <a href="https://github.com/jzesbaugh/llm-instruction-evals">Source</a></p>
+    <p class="ttl">Seattle Vegan Restaurant Guide</p>
+    <p class="body">A zero-dependency embeddable web app with search, filtering and offline install, running on a live site. Open-sourced MIT with documentation written so another city can stand up its own. <a href="https://www.seattlevegangroup.org/guide">Live</a> &middot; <a href="https://github.com/jzesbaugh/svg-public">Source</a></p>
   </div>
 </div>
 
 <div class="row">
-  <p class="lab">Shipped</p>
+  <p class="lab">Published</p>
   <div>
-    <p class="ttl">Seattle Vegan Restaurant Guide</p>
-    <p class="body">A zero-dependency embeddable web app with search, filtering and offline install. Open-sourced MIT with documentation enabling other cities to replicate it. <a href="https://www.seattlevegangroup.org/guide">Live</a> &middot; <a href="https://github.com/jzesbaugh/svg-public">Source</a></p>
+    <p class="ttl">Blind evaluation protocol for LLM instruction sets</p>
+    <p class="body">Negative controls, contamination hygiene, a four-class failure taxonomy and regression baselines. Includes a documented case where testing falsified my own design prediction. Published, not yet adopted by anyone else. <a href="https://github.com/jzesbaugh/llm-instruction-evals">Source</a></p>
   </div>
 </div>
 
@@ -333,8 +333,8 @@ var DATA = [
 
   {k:"What I've built", ok:1,
    q:"What have you actually built or run?",
-   a:"Three things worth describing.\n\nFor my degree capstone I deployed an edge security layer onto a live non-profit website: WAF, DDoS mitigation, DNS, TLS certificates, rate limiting and bot management. The interesting half was the bot management. Turn that protection up carelessly and you block Googlebot and Bingbot alongside the attackers, and a site that is perfectly secure and invisible to search has failed. So I tuned it to admit verified crawlers, and made a deliberate decision to admit AI agents as well, which for a community organization that needs to be found is the right call. I also wrote a recurring annual audit into the design, with a defined scope: certificate validity, encryption currency, and re-review against current practice.\n\nI still run that organization's infrastructure. I hold the registrar, DNS, hosting, email and member data. Other project leaders hold the CMS. That split is deliberate: they can publish without being able to touch DNS, certificates or email routing.\n\nAt CannaMLS I designed the marketplace interface and managed platform permissions and accounts. At Encore I work on networked audio over IP, which in practice means VLANs, multicast, clock sync and switch configuration, plus the guest and client network surface at live events.",
-   s:"WGU capstone, 2025 · Seattle Vegan Group · Encore Global"},
+   a:"Biggest first. At CannaMLS I designed the marketplace itself: the interface, the permission model and the account administration behind it. I chose a Craigslist-shaped layout on purpose, because people already know how that behaves, and a user who misunderstands what they are transacting is a compliance problem before it is a design problem. We also let people post without creating an account, since sign-up is the largest barrier to a marketplace working at all, and collected registration afterwards. That platform carried more than three and a half billion dollars in listed assets at its peak and is still running four years after I left.\n\nSecond, something people actually use. I built and shipped the Seattle Vegan Restaurant Guide: a zero-dependency web app with search, filtering and offline install, embedded in a live site. I open-sourced it MIT with documentation written so another city could stand its own version up. It is in use now, which I weigh above anything I have published that nobody has adopted.\n\nThird, the infrastructure underneath it. I hold that organization's registrar, DNS, hosting, email and member data. Other project leaders hold the CMS, so they can publish without being able to touch DNS, certificates or email routing. I deployed the edge security layer myself: WAF, TLS, rate limiting and bot management, tuned so verified crawlers and AI agents still get through, because a site that is perfectly secure and invisible to search has failed. Part of that work doubled as my degree capstone.\n\nAnd at Encore, networked audio over IP: VLANs, multicast, clock sync and switch configuration, plus the guest and client network surface at live events.",
+   s:"CannaMLS, 2019 to 2022 · Seattle Vegan Group · Encore Global"},
 
   {k:"Starting things", ok:1,
    q:"Have you built an organization from nothing?",
@@ -363,7 +363,7 @@ var DATA = [
 
   {k:"AI", ok:1,
    q:"What is your AI experience?",
-   a:"Evaluation and governance, not model building, and I want to be precise about which.\n\nI wrote and published an open-source blind evaluation protocol for large language model instruction sets. It has negative controls, contamination hygiene, a four-class failure taxonomy and regression baselines. The reason it needs all that is that the usual way people evaluate a prompt is to try it a few times and form an impression, and an impression is not a measurement.\n\nThe part I would point at is a documented case where testing falsified my own design prediction. I had expected a particular instruction structure to perform better. It did not. That is in the repository, corrected, rather than quietly removed.\n\nWhat I have not done: trained models, worked with training datasets, or built anything in a named ML framework. If a role needs that, I am not your candidate for it.",
+   a:"Evaluation and governance, not model building, and I want to be precise about which.\n\nI wrote and published an open-source blind evaluation protocol for large language model instruction sets. It has negative controls, contamination hygiene, a four-class failure taxonomy and regression baselines. The reason it needs all that is that the usual way people evaluate a prompt is to try it a few times and form an impression, and an impression is not a measurement.\n\nThe part I would point at is a documented case where testing falsified my own design prediction. I had expected a particular instruction structure to perform better. It did not. That is in the repository, corrected, rather than quietly removed.\n\nWhat I have not done: trained models, worked with training datasets, or built anything in a named ML framework. If a role needs that, I am not your candidate for it. I should also be straight that this is a methodology I published, not one anybody else has picked up. Published is a weaker claim than adopted, and I would rank the shipped app above it for exactly that reason.",
    s:"github.com/jzesbaugh/llm-instruction-evals, MIT licensed"},
 
   {k:"Kubernetes", ok:0,
