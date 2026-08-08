@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>/* Set theme before first paint so there is no flash. Dark is the default; a stored
+   choice wins. Wrapped because localStorage throws in some privacy modes. */
+(function(){var t="dark";try{t=localStorage.getItem("jz-theme")||"dark";}catch(e){}
+document.documentElement.setAttribute("data-theme",t);})();</script>
 <title>Jesse Zesbaugh — Twenty years building and running small organizations</title>
 <meta name="description" content="Twenty years building and running small organizations, usually owning whatever function was too small to justify a specialist. Twelve interview questions, answered.">
 <meta name="author" content="Jesse Zesbaugh">
-<meta name="theme-color" content="#3C4F1B">
+<meta name="theme-color" content="#0F0F0F">
 <link rel="canonical" href="https://jzesbaugh.github.io/resume/">
 
 <meta property="og:type" content="profile">
@@ -67,12 +71,45 @@
 </script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%233C4F1B'/><text y='72' x='50' text-anchor='middle' font-family='Helvetica,sans-serif' font-size='58' font-weight='500' fill='%23FFFFFF'>JZ</text></svg>">
 <!--
-  WORK IN PROGRESS - rev 3e, 2026-08-07. See Resume_Site/RESUME_SITE_GUIDE.md for the full log.
+  WORK IN PROGRESS - rev 3i, 2026-08-07. See Resume_Site/RESUME_SITE_GUIDE.md for the full log.
 
   SOCIAL / LINK METADATA (rev 3e): full Open Graph set with a 1200x630 og.png, Twitter
   summary_large_image, canonical URL, theme-color, and JSON-LD Person schema for recruiter
   tooling. og.png MUST be uploaded alongside this file or every shared link renders imageless.
   Absolute URLs are required - relative paths do not resolve for social scrapers.
+
+  THEMES (rev 3i): three - dark (default), light, terminal. The theme button cycles and always
+  advertises the NEXT one. Terminal is opt-in phosphor-on-black in monospace; because nobody
+  sees it unless they choose it, it does not position him by default, which was the original
+  objection to building it. The green is deliberately NOT the classic #33FF33 - that vibrates
+  against black and is unreadable at paragraph length. Monospace runs wide, so .name and .lede
+  step down a size under this theme. Print resets ALL themes to ink-on-paper via a var override,
+  which also fixed dark mode leaking grey text into print.
+
+  RANDOM QUESTION (rev 3i): a discovery affordance, not a gimmick - it surfaces answers a reader
+  would not have picked. Never repeats the current one, and moves focus to the answer so keyboard
+  and screen-reader users are taken to what changed. The deliberate ordering still governs the
+  default view; this is an alternative path through it, not a replacement.
+
+  OPTIONS BAR (rev 3h): a labelled utility row above the name - theme, print, copy email.
+  Deliberately NOT a dropdown: three controls do not justify the focus management, escape
+  handling and click-outside logic a real menu needs, and an inline row is more accessible.
+  PRINT is the important one. The OS print dialog offers "Save as PDF", so this plus the print
+  stylesheet substantially closes the "no PDF" gap without a second document that drifts out of
+  sync with the page. It also fixed a real bug: printing used to capture only the single open
+  answer, so a printed copy was silently missing eleven of twelve. A hidden #printall block now
+  holds every Q&A and is revealed only in print.
+  REJECTED here: text-size controls (browsers do it better), serif/sans toggle (punting a
+  decision to the reader), random-question button (undercuts the deliberate ordering), and a
+  terminal/monospace theme (reads as trying too hard, and fights the build-neutral decision).
+
+  THEME (rev 3g): dark by DEFAULT, with a toggle in the header. Set via data-theme on <html>,
+  not prefers-color-scheme, because Jesse wants everyone to land on dark. A tiny inline script
+  in <head> applies the stored choice before first paint so there is no white flash. Choice
+  persists in localStorage, wrapped in try/catch because it throws in some privacy modes; the
+  fallback is simply dark. The <html> tag also carries data-theme="dark" so no-JS readers get
+  dark rather than a broken half-state. Chip shadows are now vars - the hardcoded black ones
+  were invisible on a dark background.
 
   BUILD-NEUTRAL (rev 3f) - A1 is undecided BY CHOICE until a real posting exists. An earlier
   title framed him as "IT, compliance and operations", which is a positioning claim, not a fact,
@@ -136,17 +173,36 @@
     --paper:#FFFFFF; --ink:#1A1A1A; --ink2:#5C5C5C; --ink3:#8E8E8E; --line:#E5E5E5;
     --accent:#3C4F1B; --onaccent:#FFFFFF;
     --chipbg:#F4F4F2; --chipbd:#DCDCD8; --chipink:#333333;
+    --shadow:rgba(0,0,0,.05); --shadow2:rgba(0,0,0,.11);
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   }
-  @media (prefers-color-scheme:dark){
-    :root{ --paper:#0F0F0F; --ink:#ECECEC; --ink2:#A2A2A2; --ink3:#6E6E6E;
-           --line:#2A2A2A; --accent:#A9C866; --onaccent:#12180A;
-           --chipbg:#1C1C1A; --chipbd:#333331; --chipink:#D6D6D2; }
+  :root[data-theme="dark"]{
+    --paper:#0F0F0F; --ink:#ECECEC; --ink2:#A2A2A2; --ink3:#6E6E6E;
+    --line:#2A2A2A; --accent:#A9C866; --onaccent:#12180A;
+    --chipbg:#1C1C1A; --chipbd:#333331; --chipink:#D6D6D2;
+    --shadow:rgba(0,0,0,.45); --shadow2:rgba(0,0,0,.6);
   }
+  /* Phosphor. Tuned down from the classic #33FF33 - that vibrates against black and is
+     unreadable at paragraph length. Contrast checked; body text sits around 9:1. */
+  :root[data-theme="terminal"]{
+    --paper:#0A0D0A; --ink:#8FEF9F; --ink2:#5FBF77; --ink3:#3E8A54;
+    --line:#17301D; --accent:#B6FF7A; --onaccent:#08130A;
+    --chipbg:#0F1A11; --chipbd:#23422B; --chipink:#8FEF9F;
+    --shadow:rgba(0,0,0,.5); --shadow2:rgba(0,0,0,.65);
+    --font:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  html{color-scheme:light dark}
+  :root[data-theme="dark"],:root[data-theme="terminal"]{color-scheme:dark}
+  :root[data-theme="light"]{color-scheme:light}
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
   body{margin:0;background:var(--paper);color:var(--ink);
-    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font:16px/1.65 var(--font);
     -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  /* Monospace runs wide; pull the display sizes back so the name still fits a phone. */
+  :root[data-theme="terminal"] .name{font-size:38px;letter-spacing:-.01em}
+  :root[data-theme="terminal"] .lede{font-size:17px}
+  @media (max-width:620px){ :root[data-theme="terminal"] .name{font-size:27px} }
   .wrap{max-width:720px;margin:0 auto;padding:64px 28px 96px}
 
   a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;
@@ -154,9 +210,23 @@
   a:hover{opacity:.68}
 
   .name{font-size:44px;font-weight:500;letter-spacing:-.025em;line-height:1;margin:0 0 18px}
-  .contact{display:flex;flex-wrap:wrap;gap:6px 26px;font-size:11px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--ink2);margin:0}
+  .contact{display:flex;flex-wrap:wrap;align-items:center;gap:6px 26px;font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);margin:0}
   header{border-bottom:1px solid var(--ink);padding-bottom:22px}
+
+  .bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 30px}
+  .barlab{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);
+    margin-right:4px}
+  .opt{font:inherit;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink2);background:var(--chipbg);border:1px solid var(--chipbd);border-radius:100px;
+    padding:6px 13px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;
+    transition:all .15s;flex:none}
+  .opt:hover{border-color:var(--accent);color:var(--accent)}
+  .opt svg{flex:none;width:13px;height:13px}
+  .opt:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .opt.done{border-color:var(--accent);color:var(--accent)}
+
+  .printonly{display:none}
 
   .lede{font-size:19px;line-height:1.6;margin:36px 0 0;letter-spacing:-.005em}
 
@@ -185,10 +255,10 @@
   .chip{font:inherit;font-size:13.5px;font-weight:500;color:var(--chipink);
     background:var(--chipbg);border:1px solid var(--chipbd);border-radius:8px;
     padding:8px 13px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;
-    box-shadow:0 1px 0 rgba(0,0,0,.05);transition:all .14s}
+    box-shadow:0 1px 0 var(--shadow);transition:all .14s}
   .chip .cv{color:var(--accent);font-size:15px;line-height:1}
   .chip:hover{border-color:var(--accent);transform:translateY(-1px);
-    box-shadow:0 2px 5px rgba(0,0,0,.11)}
+    box-shadow:0 2px 5px var(--shadow2)}
   .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);
     color:var(--onaccent);box-shadow:none;transform:none}
   .chip[aria-pressed="true"] .cv{color:var(--onaccent)}
@@ -215,11 +285,22 @@
     .lab{margin:0 0 8px}
   }
   @media print{
+    /* Reset every theme to ink-on-paper. Without this, dark and terminal leak their text colours
+       into print - grey or phosphor green on white. */
+    :root,:root[data-theme="dark"],:root[data-theme="terminal"]{
+      --paper:#fff; --ink:#000; --ink2:#222; --ink3:#555; --line:#ccc; --accent:#000;
+      --font:Helvetica,Arial,sans-serif;
+    }
     body{background:#fff;color:#000;font-size:11pt}
     .wrap{max-width:none;padding:0}
-    .chips,.note,.cue{display:none}
-    .ans{border-left:1px solid #000;page-break-inside:avoid}
-    .ans .tag,.ans .a{color:#000}
+    /* Interactive controls and the single-answer panel drop out; the full Q&A prints instead,
+       so a printed copy contains ALL twelve answers regardless of what was on screen. */
+    .chips,.note,.cue,.bar,.ans{display:none}
+    .printonly{display:block}
+    .printonly .pq{font-size:11.5pt;font-weight:700;margin:14pt 0 3pt;page-break-after:avoid}
+    .printonly .pa{font-size:10pt;line-height:1.45;margin:0 0 5pt;color:#000}
+    .printonly .ps{font-size:8.5pt;color:#555;margin:0 0 2pt}
+    .printonly .pitem{page-break-inside:avoid;margin:0 0 10pt}
     .row{page-break-inside:avoid}
     .row li:before{background:#000}
     a{color:#000;text-decoration:none}
@@ -228,6 +309,23 @@
 </head>
 <body>
 <div class="wrap">
+
+<div class="bar" role="group" aria-label="Page options">
+  <span class="barlab">Options</span>
+  <button class="opt" id="theme" type="button" aria-pressed="true"></button>
+  <button class="opt" id="printbtn" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4v-6h16v6h-2"/><rect x="7" y="14" width="10" height="7"/></svg>
+    <span>Print / PDF</span>
+  </button>
+  <button class="opt" id="copybtn" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+    <span>Copy email</span>
+  </button>
+  <button class="opt" id="randbtn" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M21 3l-7 7M8 21H3v-5M3 21l7-7M21 16v5h-5M14 14l7 7M3 8V3h5M10 10L3 3"/></svg>
+    <span>Random question</span>
+  </button>
+</div>
 
 <header>
   <p class="name">Jesse Zesbaugh</p>
@@ -254,6 +352,7 @@ compliance and operations.</p>
     </p>
     <div class="chips" id="chips"></div>
     <div class="ans" id="ans"></div>
+    <div class="printonly" id="printall" aria-hidden="true"></div>
     <p class="note">Each answer cites where it comes from.</p>
   </div>
 </div>
@@ -408,7 +507,7 @@ compliance and operations.</p>
 
 <footer>
   <p>Jesse Zesbaugh &middot; Kirkland, WA &middot; <a href="mailto:Jzesbaugh@icloud.com">Jzesbaugh@icloud.com</a><br>
-  Answers written August 2026.</p>
+  Last updated 7 August 2026.</p>
 </footer>
 
 </div>
@@ -495,6 +594,36 @@ var DATA = [
      left in place, dormant, because the live-model version will need them. */
 ];
 
+/* Theme toggle. Defaults to dark; a stored choice persists. The button is labelled with the
+   ACTION, not the current state - "Light" means "switch to light" - because a toggle labelled
+   with its current state is ambiguous about what clicking it does. */
+(function(){
+  var root=document.documentElement, b=document.getElementById('theme');
+  if(!b) return;
+  var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2M12 20.5v2M22.5 12h-2M3.5 12h-2M19.4 4.6l-1.4 1.4M6 18l-1.4 1.4M19.4 19.4L18 18M6 6L4.6 4.6"/></svg>';
+  var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>';
+  var TERM='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M7 9l3 3-3 3M13 15h4"/></svg>';
+  /* Three-way cycle. The button always advertises the NEXT theme, not the current one, so a
+     click has a predictable result. */
+  var ORDER=['dark','light','terminal'];
+  var META={dark:{icon:MOON,label:'Dark'},light:{icon:SUN,label:'Light'},terminal:{icon:TERM,label:'Terminal'}};
+  function current(){ var t=root.getAttribute('data-theme'); return ORDER.indexOf(t)>-1 ? t : 'dark'; }
+  function next(){ return ORDER[(ORDER.indexOf(current())+1) % ORDER.length]; }
+  function paint(){
+    var n=next();
+    b.innerHTML = META[n].icon + '<span>' + META[n].label + '</span>';
+    b.setAttribute('aria-label', 'Switch to ' + META[n].label.toLowerCase() + ' theme');
+  }
+  b.removeAttribute('aria-pressed');
+  b.addEventListener('click', function(){
+    var n=next();
+    root.setAttribute('data-theme', n);
+    try{ localStorage.setItem('jz-theme', n); }catch(e){}
+    paint();
+  });
+  paint();
+})();
+
 (function(){
   var chips=document.getElementById('chips'), ans=document.getElementById('ans'), btns=[];
 
@@ -519,7 +648,69 @@ var DATA = [
     chips.appendChild(b); btns.push(b);
   });
 
+  /* Build the print-only block containing EVERY question and answer. Without this, printing
+     captures only whichever single answer happened to be open, which made a printed copy
+     silently incomplete. */
+  var pa=document.getElementById('printall');
+  if(pa){
+    pa.innerHTML = DATA.map(function(d){
+      return '<div class="pitem"><p class="pq">'+esc(d.q)+'</p>'
+        + d.a.split('\n\n').map(function(p){return '<p class="pa">'+esc(p)+'</p>';}).join('')
+        + (d.s?'<p class="ps">'+esc(d.s)+'</p>':'') + '</div>';
+    }).join('');
+  }
+
+  /* Random question. Never repeats the one already showing, and moves focus to the answer so a
+     keyboard or screen-reader user is taken to what changed rather than left at the button. */
+  var rb=document.getElementById('randbtn');
+  if(rb){
+    rb.addEventListener('click', function(){
+      if(DATA.length<2) return;
+      var i, cur=btns.findIndex(function(x){return x.getAttribute('aria-pressed')==='true';});
+      do { i=Math.floor(Math.random()*DATA.length); } while(i===cur);
+      show(i);
+      ans.setAttribute('tabindex','-1'); ans.focus({preventScroll:true});
+      ans.scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+  }
+
   show(0);
+})();
+
+/* Print / Save as PDF. The OS print dialog offers "Save as PDF" on both macOS and Windows, so
+   this plus the print stylesheet gives a reader a usable PDF without a separate file to
+   maintain and keep in sync. */
+(function(){
+  var b=document.getElementById('printbtn');
+  if(b) b.addEventListener('click', function(){ window.print(); });
+})();
+
+/* Copy email, with a fallback for browsers without the async clipboard API and for pages not
+   served over https. Confirms in the button itself rather than with an alert. */
+(function(){
+  var b=document.getElementById('copybtn');
+  if(!b) return;
+  var EMAIL='Jzesbaugh@icloud.com', label=b.querySelector('span'), original=label.textContent, t;
+  function done(ok){
+    label.textContent = ok ? 'Copied' : EMAIL;
+    b.classList.add('done');
+    clearTimeout(t);
+    t=setTimeout(function(){ label.textContent=original; b.classList.remove('done'); }, 2200);
+  }
+  b.addEventListener('click', function(){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(EMAIL).then(function(){done(true);},function(){done(false);});
+      return;
+    }
+    try{
+      var ta=document.createElement('textarea');
+      ta.value=EMAIL; ta.setAttribute('readonly','');
+      ta.style.position='fixed'; ta.style.top='-1000px';
+      document.body.appendChild(ta); ta.select();
+      var ok=document.execCommand('copy');
+      document.body.removeChild(ta); done(ok);
+    }catch(e){ done(false); }
+  });
 })();
 </script>
 </body>
