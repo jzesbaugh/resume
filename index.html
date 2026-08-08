@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jesse Zesbaugh — IT, compliance and operations</title>
-<meta name="description" content="Twenty years building and running small organizations. IT and compliance, platform operations, media production. Nine questions answered from a verified record.">
+<meta name="description" content="Twenty years building and running small organizations. IT and compliance, platform operations, media production. Twelve interview questions, answered.">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Jesse Zesbaugh — IT, compliance and operations">
-<meta property="og:description" content="Twenty years building and running small organizations. Nine questions answered from a verified record, and declined when the record does not cover them.">
+<meta property="og:description" content="Twenty years building and running small organizations, most often as whoever owned the functions nobody else did. Twelve interview questions, answered from the record.">
 <meta property="og:url" content="https://jzesbaugh.github.io/resume/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%233C4F1B'/><text y='72' x='50' text-anchor='middle' font-family='Helvetica,sans-serif' font-size='58' font-weight='500' fill='%23FFFFFF'>JZ</text></svg>">
@@ -44,12 +44,18 @@
   principled refusal is indistinguishable from a broken chatbot to a non-technical reader.
   Buttons never promise more than the fixed-answer design can deliver.
 
-  DESIGN INTENT (unchanged): answers are PRE-WRITTEN, not generated. No model call, no API key.
-  The refusal behavior is guaranteed by matching logic, not hoped for. A resume must never
-  improvise about credentials.
+  PHASE 1 vs PHASE 2 - the distinction that drove the 2026-08-07 cleanup. This page is a written
+  interview, not a chatbot. Answers are pre-written and shown verbatim; there is no model call.
+  But that is simply how the page works, NOT a feature to advertise: nobody suspects a static
+  page of inventing credentials, so a disclaimer denying it, and decline answers demonstrating
+  refusal, were solving a phase-2 problem in a phase-1 artifact. Removed. If the live-model
+  version is built, they come back, and the `ok` flag is still wired for it.
 
-  ORDER: general to nuanced, declines last. Opens on the career-change question because that
-  is the first objection any employer forms.
+  ORDER: the arc a real interview follows. Opens soft and general, then strengths and limits,
+  then behavioral stories, then the founder-fit objections, then competency. Do NOT open on the
+  career-change question - it is a challenge, not an opener, and leading with it reads defensive.
+  Question wording is taken from research into what hiring managers actually ask (2026-08-07),
+  not invented to suit the material that happened to be available.
 
   CONTACT: email only, by choice. Phone and street address deliberately absent - public page.
 
@@ -179,9 +185,7 @@ compliance and operations.</p>
     </p>
     <div class="chips" id="chips"></div>
     <div class="ans" id="ans"></div>
-    <p class="note">Answers are written in advance and shown verbatim. There is no model call
-      and nothing is generated, so this page cannot invent a credential. Questions outside the
-      record are declined.</p>
+    <p class="note">Each answer cites where it comes from.</p>
   </div>
 </div>
 
@@ -302,6 +306,14 @@ compliance and operations.</p>
 <p class="sec">Selected work</p>
 
 <div class="row">
+  <p class="lab">Released</p>
+  <div>
+    <p class="ttl"><em>War of the Worlds: The True Story</em></p>
+    <p class="body">Producer. A feature film released theatrically in 2012, reviewed by the Los Angeles Times and The Hollywood Reporter, toured fifty theatres, and completed an Academy Award qualifying run. <a href="https://en.wikipedia.org/wiki/War_of_the_Worlds:_The_True_Story">Wikipedia</a></p>
+  </div>
+</div>
+
+<div class="row">
   <p class="lab">In use</p>
   <div>
     <p class="ttl">Seattle Vegan Restaurant Guide</p>
@@ -317,64 +329,101 @@ compliance and operations.</p>
   </div>
 </div>
 
+<div class="row">
+  <p class="lab">You are here</p>
+  <div>
+    <p class="ttl">This page</p>
+    <p class="body">One HTML file. No dependencies, no build step, no tracking and no analytics. The whole resume renders with JavaScript disabled, and it prints properly. Documented so you can fork it and answer your own twelve questions. <a href="https://github.com/jzesbaugh/resume">Source and README</a></p>
+  </div>
+</div>
+
 <footer>
-  <p>This page answers from a fixed record. It does not generate text and cannot invent a credential.</p>
+  <p>Jesse Zesbaugh &middot; Kirkland, WA &middot; <a href="mailto:Jzesbaugh@icloud.com">Jzesbaugh@icloud.com</a><br>
+  Answers written August 2026.</p>
 </footer>
 
 </div>
 
 <script>
-/* Ordered general to nuanced; declines last. */
-var DATA = [
-  {k:"Career change", ok:1,
-   q:"Why move from media into IT?",
-   a:"I did not arrive at IT from a classroom. I arrived at the classroom from IT.\n\nFrom 2019 to 2022 I was CIO at CannaMLS, a national marketplace, and the platform side of that company was one person. That meant access control and account administration, privacy and data retention, third-party vendor risk, regulatory liaison, incident response, and pre-publication review of everything users posted. Nobody called it a security job at the time. It was one.\n\nI went back to school full time in 2022 to put a credential and a shared vocabulary behind work I had already been doing, and I stepped out of running businesses into a defined technical role on purpose, so the coursework would actually get finished. That was a choice, not a fall.\n\nI treat security as baseline IT rather than a separate discipline. If someone is running infrastructure without it, that is the thing worth worrying about.",
-   s:"CannaMLS, 2019 to 2022 · WGU, September 2022 to present"},
+/* ORDERED AS AN INTERVIEW ACTUALLY RUNS. Questions are the ones hiring managers actually ask,
+   per research 2026-08-07, not questions invented to suit the available material. Arc: open soft
+   and general, then strengths and limits, then behavioral stories, then the founder-fit
+   objections, then competency, then the declines.
 
-  {k:"What I've built", ok:1,
-   q:"What have you actually built or run?",
+   "Tell me about yourself" is asked in 90%+ of interviews and was ABSENT from every earlier
+   revision. Do NOT open on the career-change question - it is a challenge, not an opener.
+
+   RETIRED 2026-08-07 (content preserved, reframed): "Regulators" -> "Under pressure";
+   "Trust and safety" -> "A hard call"; "Starting things" -> "Why work for someone else";
+   "Incidents" -> "A mistake". Prior version archived. */
+var DATA = [
+  {k:"About me", ok:1,
+   q:"Tell me about yourself.",
+   a:"I have spent twenty years in small organizations, mostly ones I had a hand in starting. At that size the org chart is a polite fiction. You own whatever nobody else is owning, and for me that was usually some mix of growth, communications, product, compliance and operations.\n\nThe through line is that I get handed the thing nobody has picked up yet. At CannaMLS that became the platform and compliance side of a national marketplace: access control, privacy, vendor risk, regulators, and reviewing everything users posted before it went live. At Seattle Videography it was running the business for fifteen years. Right now it is the infrastructure for a food co-operative and a technical lead role at a hotel.\n\nI went back to school full time in 2022 to put a credential under the technical half of that. I finish in October.\n\nRight now I have three things running: a day job, the degree, and a co-operative in formation. That is fairly normal for me. What I want next is somewhere to do this work for a long time.",
+   s:"Seattle Videography · CannaMLS · Seattle Vegan Group · Encore Global · WGU"},
+
+  {k:"What I want", ok:1,
+   q:"What are you looking for in your next role?",
+   a:"Three things, and I will be direct about them, because I would rather find out early if they do not match.\n\nStability and a real retirement. Defined-benefit pensions have largely left the private sector, and I am at a point where that outweighs upside. I am looking for somewhere to finish out, not a stepping stone.\n\nWork that survives a downturn. I have absorbed two recessions from inside small businesses. I would like the next twenty years to be less exposed to that than the last twenty were.\n\nAnd somewhere with enough in it to learn. This one is temperament rather than sector. The work I actually remember is the work where I had to dig: understanding benefit eligibility rules well enough to find a special-circumstance FAFSA route for students whose parents were absent or abusive, or working out what four different states' regulators needed from a marketplace nobody had written rules for yet. Neither of those was in a job description. I would rather be busy and learning something than comfortable.\n\nOn sector: I have a year of public service behind me as a Benefits Hub Coach through AmeriCorps, at UW Bothell and Cascadia College, enrolling students in federal and state programs including SNAP, WIC and health coverage. My degree is from an NCAE-C designated program, a designation that exists to feed the government and defense pipeline. That points fairly plainly at public sector work, and I live in King County.",
+   s:"United Way of King County / AmeriCorps, 2022 to 2023 · WGU, NCAE-C designated"},
+
+  {k:"What I'd bring", ok:1,
+   q:"What would you bring to this role?",
+   a:"Three things, and I would rather be concrete than list adjectives.\n\nOwning a function end to end when nobody else is going to. That is most of my career: the compliance function at CannaMLS, the infrastructure at the co-operative, the whole business at Seattle Videography. I am comfortable being the person a thing depends on, and I know what that obligates.\n\nExplaining technical risk to people who do not want a technical answer. Twenty years of client work, four hundred interviews, and a year walking students through benefit eligibility rules. Compliance work stalls on this far more often than it stalls on tooling.\n\nAnd knowing where my knowledge stops. That sounds like a soft answer. In practice it means I do not guess at things a decision depends on, and I would rather tell you what I have not done than let you discover it later. There are a few examples of that on this page.",
+   s:"CannaMLS · Seattle Videography · United Way of King County / AmeriCorps"},
+
+  {k:"My weakness", ok:1,
+   q:"What is your greatest weakness?",
+   a:"I am entering this field at entry level in my forties, after running my own companies. Two things follow from that and I would rather name both than have you find them.\n\nI am used to deciding. In a company of ten you do not build consensus, you make the call and live with it. In a larger organization that instinct is wrong more often than it is right. I have been deliberately practicing the other mode: at Encore I hold a technical lead role with a job-classification boundary I do not own, and I have found that useful rather than frustrating.\n\nThe narrower gap is vocabulary. I have done the work, access control and third-party risk and incident response and regulatory liaison, under job titles that never used those words. What I have less of is fluency in the frameworks that describe it: NIST, ISO 27001, SOC 2. I can do the thing. I am still learning to talk about it the way an auditor does.\n\nWhat I would not offer as a weakness is follow-through. Three of the four organizations I started are still operating.",
+   s:"Encore Global, 2024 to present · WGU, 2022 to present"},
+
+  {k:"Something I built", ok:1,
+   q:"Walk me through something you built.",
    a:"Biggest first. At CannaMLS I designed the marketplace itself: the interface, the permission model and the account administration behind it. I chose a Craigslist-shaped layout on purpose, because people already know how that behaves, and a user who misunderstands what they are transacting is a compliance problem before it is a design problem. We also let people post without creating an account, since sign-up is the largest barrier to a marketplace working at all, and collected registration afterwards. That platform carried more than three and a half billion dollars in listed assets at its peak and is still running four years after I left.\n\nSecond, something people actually use. I built and shipped the Seattle Vegan Restaurant Guide: a zero-dependency web app with search, filtering and offline install, embedded in a live site. I open-sourced it MIT with documentation written so another city could stand its own version up. It is in use now, which I weigh above anything I have published that nobody has adopted.\n\nThird, the infrastructure underneath it. I hold that organization's registrar, DNS, hosting, email and member data. Other project leaders hold the CMS, so they can publish without being able to touch DNS, certificates or email routing. I deployed the edge security layer myself: WAF, TLS, rate limiting and bot management, tuned so verified crawlers and AI agents still get through, because a site that is perfectly secure and invisible to search has failed. Part of that work doubled as my degree capstone.\n\nAnd at Encore, networked audio over IP: VLANs, multicast, clock sync and switch configuration, plus the guest and client network surface at live events.",
    s:"CannaMLS, 2019 to 2022 · Seattle Vegan Group · Encore Global"},
 
-  {k:"Starting things", ok:1,
-   q:"Have you built an organization from nothing?",
-   a:"Four, and three of them outlived my involvement.\n\nSeattle Videography, in 2005. I ran it for more than fifteen years, then handed operational control to a partner in order to go back to school full time. It is still trading, and still lists me as Emeritus.\n\nCannaMLS, where I joined early as Communications Director and later became CIO and partner. It carried more than three and a half billion dollars in listed assets at its peak. It is still operating four years after I left.\n\nA snowboard review channel I started in 2008, which has since passed fifteen hundred videos.\n\nAnd currently Seattle Vegan Group, a member-owned grocery co-operative in formation. We have built a community of roughly 280 newsletter subscribers and 150 Discord members before there is anything to sell them, which is the order I would rather do it in. Nothing is filed yet.",
-   s:"Seattle Vegan Group · CannaMLS · Seattle Videography · Board Insiders"},
+  {k:"A mistake", ok:1,
+   q:"Tell me about a mistake you made.",
+   a:"I broke production email for an entire organization.\n\nDuring my degree capstone I was deploying Cloudflare on a live non-profit site. DNS changes I made while setting up SSL and routing broke IMAP across every user's desktop and mobile client. That one was mine, with no ambiguity about it.\n\nWhat I did next is the part worth weighing. I assessed the severity as degraded rather than down, because a workaround existed and I did not want to escalate it as an outage it was not. I opened a ticket with the vendor, we identified root cause, and it was resolved.\n\nThen I wrote it up in the graded submission, under its own heading, instead of leaving it out. In the same document I tracked my planned timeline against the actual one, named my own overestimation as the reason the project came in early, and declined to take credit for what I judged to be luck.\n\nI would rather be the person who reports his own outage than the person who turns out to have had one.",
+   s:"WGU capstone implementation report, August 2025"},
 
-  {k:"Regulators", ok:1,
-   q:"Have you worked with regulators?",
-   a:"Yes, and in two quite different situations.\n\nThe first. Someone reported CannaMLS as operating as an unlicensed real estate agent, when what we actually ran was a marketplace. Regulators from four states, including Florida, California and Colorado, came at us more or less at once, and they came by phone. I had no way to confirm who was actually on the line, so I asked each of them to email the request from their .gov address with their identifying information attached. That was simply the easiest way to know I was talking to who I thought I was talking to. Then I supplied scoped information where it applied rather than handing over everything. It ran a few weeks with several agencies in parallel. All four closed with no violation found, and I handled it without counsel.\n\nI did not have a name for that at the time. It is requester identity verification, and skipping it is how businesses get talked into releasing records they should not have released. We were operating in a grey area, and that is exactly the situation where you slow down rather than speed up.\n\nThe second. The Oklahoma regulator called to raise a problem: our listings did not state that licenses could not be bought and sold, and users were speculating on the assumption that they could. I proposed a disclaimer, wrote it, put it up, and then sent it back to him to review rather than assuming my own fix was adequate. He agreed it was enough.\n\nI want to be accurate about that one. He found it, not me. What I would claim is the second half: writing the remedy and taking it back to the authority for sign-off, instead of quietly patching it and hoping. That turns an untested self-assessment into a position someone with authority has actually looked at.",
-   s:"CannaMLS, 2019 to 2022 · two documented incidents, resolved without counsel"},
+  {k:"Under pressure", ok:1,
+   q:"Tell me about a time you were under real pressure.",
+   a:"Four state regulators at once, and no lawyer.\n\nSomeone reported CannaMLS as operating as an unlicensed real estate agent, when what we ran was a marketplace. Florida, California, Colorado and one more contacted us more or less simultaneously, and they contacted us by phone. For a small company that is an alarming morning.\n\nThe first thing I did was slow it down. I could not confirm who was actually on the line, so I asked each of them to email the request from their .gov address with their identifying information attached. That was the simplest way to know I was talking to who I thought I was talking to. Then I supplied scoped information where it applied, rather than handing over everything.\n\nIt ran a few weeks with several agencies in parallel. All four closed with no violation found, and I handled all of it myself.\n\nI did not have a name for that at the time. It is requester identity verification, and skipping it is how businesses get talked into releasing records they should not have released. We were operating in a grey area, which is exactly the situation where you slow down rather than speed up.",
+   s:"CannaMLS, 2019 to 2022 · resolved without counsel"},
 
-  {k:"Incidents", ok:1,
-   q:"Tell me about an incident you handled.",
-   a:"Two, and I caused one of them.\n\nThe first was the four-state regulatory inquiry. Several agencies arriving at once is genuinely alarming for a small company. It closed with no violation found in any jurisdiction.\n\nThe second I did to myself. During my capstone, DNS changes I made while setting up Cloudflare's SSL and routing broke IMAP email across every user's desktop and mobile client. I assessed the severity as degraded rather than down, because a workaround existed and I did not want to escalate it as an outage it was not. I opened a ticket with the vendor, we identified root cause, and it was resolved.\n\nThen I wrote it up in the graded submission, under its own heading, instead of leaving it out. In the same document I tracked my planned timeline against the actual one, named my own overestimation as the reason the project finished early, and declined to take credit for what I judged to be luck.\n\nI would rather be the person who reports his own outage than the person who turns out to have had one.",
-   s:"CannaMLS, 2019 to 2022 · WGU capstone implementation report, August 2025"},
+  {k:"Being corrected", ok:1,
+   q:"How do you handle being told you got something wrong?",
+   a:"The Oklahoma regulator called to tell me our listings had a problem. We did not state that licenses could not be bought and sold, and users were speculating on the assumption that they could. He found it. I did not.\n\nI proposed a disclaimer, wrote it, put it up, and then sent it back to him to review rather than assuming my own fix was adequate. He agreed it was enough.\n\nThat last step is the part I would point at. Most companies write the disclaimer and hope. Taking it back to the person who raised it converts an untested self-assessment into a position someone with authority has actually looked at, and it costs one phone call.\n\nI am not precious about being the one who spots the problem. I care whether it gets closed properly.",
+   s:"CannaMLS, 2019 to 2022"},
 
-  {k:"Trust and safety", ok:1,
-   q:"Have you handled user-generated content?",
-   a:"Every listing on CannaMLS was reviewed by a person before it went live. Not flagged content, not a sample. All of it. Approved posts got an approval letter.\n\nThat was a deliberate decision about where to put the control. We were in a legally grey area, in an industry where the rules differed by state and moved often, so publishing first and taking things down after a complaint was not a risk we could carry. Pre-publication review is slower and more expensive, and it is the right trade when the downside is regulatory rather than reputational.\n\nIt had to coexist with the opposite goal. We let people post without creating an account first, because sign-up is the single biggest barrier to a listing marketplace working at all, and they could register afterwards. Low barrier to submit, high bar to publish.\n\nThe review caught what you would expect it to catch, including attempts to use a legitimate business platform to sell narcotics. Those did not go up. A control that has never rejected anything is a control nobody can prove works. I have now done pre-publication moderation twice, a decade apart and in unrelated contexts: I moderate the community for the co-operative now.",
+  {k:"A hard call", ok:1,
+   q:"Tell me about a difficult or unpopular decision you made.",
+   a:"We reviewed every listing by hand before it went live. Not flagged content, not a sample. All of it. That is slow, it costs money, and users dislike waiting. Approved posts got an approval letter.\n\nIt was the right call for where we sat. We operated in a legally grey area, in an industry where the rules differed by state and moved often. Publishing first and taking things down after a complaint was not a risk we could carry. Pre-publication review is the more expensive trade and the correct one when the downside is regulatory rather than reputational.\n\nIt also had to coexist with the opposite goal. We let people post without creating an account, because sign-up is the largest barrier to a marketplace working at all, and collected registration afterwards. Low barrier to submit, high bar to publish.\n\nThe review caught what you would expect it to catch, including attempts to use a legitimate business platform to sell narcotics. Those did not go up. A control that has never rejected anything is a control nobody can prove works.\n\nI do a smaller version of the same job now, moderating the community forum for the co-operative. So far nobody has tried to sell narcotics on it, which I am choosing to count as progress.",
    s:"CannaMLS, 2019 to 2022 · Seattle Vegan Group, current"},
 
-  {k:"Public sector", ok:1,
-   q:"Why are you looking at public sector work?",
-   a:"Two reasons, one practical and one about fit.\n\nThe practical one: I want a real pension and work whose funding does not track the business cycle. I am not going to dress that up. Defined-benefit retirement has largely left the private sector, and I am at the point in a career where that weighs more than upside.\n\nThe fit: I spent a year as a Benefits Hub Coach through AmeriCorps, placed at UW Bothell and Cascadia College, enrolling students in federal and state benefit programs including SNAP, WIC and health coverage. That is direct public service, working inside eligibility rules and handling confidential records. I also built a pathway using special-circumstance FAFSA amendments for students whose parents were absent or abusive, which is what turns up when you read the regulation instead of accepting the default answer.\n\nMy degree is from an NCAE-C designated program, a designation that exists specifically to feed the government and defense cyber pipeline. And I live in King County.",
-   s:"United Way of King County / AmeriCorps, 2022 to 2023"},
+  {k:"Why a job", ok:1,
+   q:"You have run your own companies. Why work for someone else now?",
+   a:"I am founding something right now, so I would rather say that plainly than have you find it.\n\nSeattle Vegan Group is a member-owned grocery co-operative and I sit on the steering committee. It is community work. It is not going to fund a retirement and was never meant to. I am putting twenty years of building things toward something my neighborhood needs, and after that, who knows.\n\nThat is the shape of how I work. I like having a few things going at once. Right now that is a day job, a full-time degree and a co-operative in formation, and all three are getting done.\n\nSo the honest answer is not that I am finished starting things. It is that starting things has never been a substitute for having a job, and I have never treated it as one. I have started four organizations and three are still running: Seattle Videography, which I ran for fifteen years and handed to a partner; CannaMLS, still operating four years after I left; and a review channel from 2008 that has passed fifteen hundred videos. None of them provided a pension, income that survives a downturn, or the ability to be ill for two weeks. That is what I am here for, and no side project is going to give it to me.\n\nOn the related worry, whether I can work under someone: at Encore I direct crews but do not own scheduling or performance management. That sits above my classification and has been fine. Founder autonomy is mostly a myth anyway. Running a marketplace I answered to regulators in four states, to a business partner, and to whatever our users did next. What I would ask for is context rather than latitude. Tell me why something is being done and I will do it properly.",
+   s:"Seattle Vegan Group · Seattle Videography · CannaMLS · Board Insiders · Encore Global"},
+
+  {k:"Career change", ok:1,
+   q:"Why move from media into IT?",
+   a:"I did not arrive at IT from a classroom. I arrived at the classroom from IT.\n\nFrom 2019 to 2022 I was CIO at CannaMLS, and the platform side of that company was one person. That meant access control and account administration, privacy and data retention, third-party vendor risk, regulatory liaison, incident response, and pre-publication review of everything users posted. Nobody called it a security job at the time. It was one.\n\nI went back to school full time in 2022 to put a credential and a shared vocabulary behind work I had already been doing.\n\nThe drop in responsibility was the point, not a side effect. I wanted a few years of straightforward jobs while I studied: a year with AmeriCorps, which was also a chance to give something back, and then Encore, which is demanding in the moment but ends when the event does. Call it a mid-life break. I had been carrying payroll and regulators since my twenties and I wanted to put that down long enough to finish a degree properly.\n\nI treat security as baseline IT rather than a separate discipline. If someone is running infrastructure without it, that is the thing worth worrying about.",
+   s:"CannaMLS, 2019 to 2022 · WGU, September 2022 to present"},
 
   {k:"AI", ok:1,
    q:"What is your AI experience?",
-   a:"Evaluation and governance, not model building, and I want to be precise about which.\n\nI wrote and published an open-source blind evaluation protocol for large language model instruction sets. It has negative controls, contamination hygiene, a four-class failure taxonomy and regression baselines. The reason it needs all that is that the usual way people evaluate a prompt is to try it a few times and form an impression, and an impression is not a measurement.\n\nThe part I would point at is a documented case where testing falsified my own design prediction. I had expected a particular instruction structure to perform better. It did not. That is in the repository, corrected, rather than quietly removed.\n\nWhat I have not done: trained models, worked with training datasets, or built anything in a named ML framework. If a role needs that, I am not your candidate for it. I should also be straight that this is a methodology I published, not one anybody else has picked up. Published is a weaker claim than adopted, and I would rank the shipped app above it for exactly that reason.",
+   a:"It is on this page because everyone is asking about it. I would rather show you the one specific thing I have actually done than nod along.\n\nEvaluation and governance, not model building. I wrote and published an open-source blind evaluation protocol for large language model instruction sets, with negative controls, contamination hygiene, a four-class failure taxonomy and regression baselines. It needs all of that because the usual way people evaluate a prompt is to try it a few times and form an impression, and an impression is not a measurement.\n\nThe part I would point at is a documented case where testing falsified my own design prediction. I had expected a particular instruction structure to perform better. It did not. That is in the repository, corrected, rather than quietly removed.\n\nWhat I have not done: trained models, worked with training datasets, or built anything in a named ML framework. And I should be straight that this is a methodology I published, not one anybody else has picked up. Published is a weaker claim than adopted.\n\nIt is a language I am learning to speak. Past nodding along, a long way from fluent.",
    s:"github.com/jzesbaugh/llm-instruction-evals, MIT licensed"},
 
-  {k:"Kubernetes", ok:0,
-   q:"What is your Kubernetes experience?",
-   a:"There is nothing in my record about Kubernetes, so I am not going to answer as though there is.\n\nMy infrastructure experience is edge security and DNS on Cloudflare, hosting and email administration, and networked audio over IP. Container orchestration is not part of it. If it is central to the role, that is a real gap and you should weigh it as one.",
-   s:""},
-
-  {k:"Budget", ok:0,
-   q:"Have you managed a departmental budget?",
-   a:"My record does not contain budget figures I can stand behind, so I am not going to estimate one.\n\nWhat I can say is narrower. I have run cost-constrained projects, including selecting a zero-cost security solution for a non-profit after comparing paid alternatives and explicitly weighing vendor lock-in. That is procurement judgment. It is not the same thing as owning a departmental budget, and I would rather draw that line than blur it.",
-   s:""}
+  /* PHASE 2 ONLY - the two decline entries (Kubernetes, departmental budget) and the
+     no-hallucination disclaimer were removed 2026-08-07. They existed to prove a chatbot would
+     refuse rather than invent. On a hand-written page there is nothing to refuse: a reader does
+     not suspect a static page of fabricating credentials, so the declines answer an accusation
+     nobody made, and volunteering unasked-for skill gaps is not what a resume is for. Both are
+     preserved in CAREER_REFERENCE.md as the phase-2 spec. The `ok` flag and its rendering are
+     left in place, dormant, because the live-model version will need them. */
 ];
 
 (function(){
