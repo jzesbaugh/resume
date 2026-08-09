@@ -92,7 +92,7 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
   objection to building it. The green is deliberately NOT the classic #33FF33 - that vibrates
   against black and is unreadable at paragraph length. Monospace runs wide, so .name and .lede
   step down a size under this theme. Print resets ALL themes to ink-on-paper via a var override,
-  which also fixed dark mode leaking grey text into print.
+  which also fixed dark mode leaking gray text into print.
 
   RANDOM QUESTION (rev 3i): a discovery affordance, not a gimmick - it surfaces answers a reader
   would not have picked. Never repeats the current one, and moves focus to the answer so keyboard
@@ -140,7 +140,7 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
   analysis rather than a misread; see Candidate #43 in AI settings/SETTINGS_LOG.md.
 
   DESIGN: editorial credit-block grid (label left, content right), hairline rules, small-caps
-  letterspaced labels. Clean white paper with neutral greys. Single restrained accent in a very
+  letterspaced labels. Clean white paper with neutral grays. Single restrained accent in a very
   dark pea green (#3C4F1B) - dark enough to read as deliberate rather than decorative, saturated
   enough to be unmistakably not-black at a glance. Earthy greens are the documented intersection
   of "warm" and "conventionally safe on a resume". Bright red/orange were considered and
@@ -151,7 +151,7 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
   because no single one is sufficient: (1) an explicit instruction line - the highest-reliability
   signal by far; (2) filled background, not outline-only, since outlined shapes read as tags;
   (3) a chevron on each; (4) shadow plus hover lift; (5) first item pre-selected so the
-  cause-and-effect is visible before any click. Links are accent-coloured AND underlined; the
+  cause-and-effect is visible before any click. Links are accent-colored AND underlined; the
   previous hairline-under-inherited-ink was near-invisible on warm paper.
 
   REJECTED: a free-text ask box. Higher raw legibility, but it sets an LLM expectation, and a
@@ -233,6 +233,10 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
     color:var(--ink2);background:var(--chipbg);border:1px solid var(--chipbd);border-radius:100px;
     padding:6px 13px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;
     transition:all .15s;flex:none}
+  /* The IMDb item is a real outbound link, not a control, so it is an <a>. Kill the link
+     underline and accent so it reads as part of the bar; the global externalize pass still
+     gives it target=_blank and the arrow marker. */
+  a.opt{text-decoration:none;color:var(--ink2)}
   .opt:hover{border-color:var(--accent);color:var(--accent)}
   .opt svg{flex:none;width:13px;height:13px}
   .opt:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -297,8 +301,8 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
     .lab{margin:0 0 8px}
   }
   @media print{
-    /* Reset every theme to ink-on-paper. Without this, dark and terminal leak their text colours
-       into print - grey or phosphor green on white. */
+    /* Reset every theme to ink-on-paper. Without this, dark and terminal leak their text colors
+       into print - gray or phosphor green on white. */
     :root,:root[data-theme="dark"],:root[data-theme="terminal"]{
       --paper:#fff; --ink:#000; --ink2:#222; --ink3:#555; --line:#ccc; --accent:#000;
       --font:Helvetica,Arial,sans-serif;
@@ -338,6 +342,10 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5M21 3l-7 7M8 21H3v-5M3 21l7-7M21 16v5h-5M14 14l7 7M3 8V3h5M10 10L3 3"/></svg>
     <span>Random question</span>
   </button>
+  <a class="opt" href="https://www.imdb.com/name/nm3561148/">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M8 4v16M16 4v16M3 8h5M3 12h5M3 16h5M16 8h5M16 12h5M16 16h5"/></svg>
+    <span>IMDb</span>
+  </a>
 </div>
 
 <header>
@@ -506,7 +514,7 @@ compliance and operations.</p>
   <p class="lab">Published</p>
   <div>
     <p class="ttl">Blind evaluation protocol for LLM instruction sets</p>
-    <p class="body">Negative controls, contamination hygiene, a four-class failure taxonomy and regression baselines. Includes a documented case where testing falsified my own design prediction. Published, not yet adopted by anyone else. <a href="https://github.com/jzesbaugh/llm-instruction-evals">Source</a></p>
+    <p class="body">Negative controls, contamination hygiene, a four-verdict grading scheme and regression baselines. The current version adds a control arm — the same prompts run with no instruction set at all — which showed that several rules I had written were not changing anything the model did not already do on its own. Two documented cases where testing falsified my own predictions. Published, not yet adopted by anyone else. <a href="https://github.com/jzesbaugh/llm-instruction-evals">Source</a></p>
   </div>
 </div>
 
@@ -520,7 +528,7 @@ compliance and operations.</p>
 
 <footer>
   <p>Jesse Zesbaugh &middot; Kirkland, WA &middot; <a href="mailto:Jzesbaugh@icloud.com">Jzesbaugh@icloud.com</a><br>
-  Last updated 7 August 2026.</p>
+  Last updated 9 August 2026.</p>
 </footer>
 
 </div>
@@ -570,17 +578,17 @@ var DATA = [
 
   {k:"Under pressure", ok:1,
    q:"Tell me about a time you were under real pressure.",
-   a:"Four state regulators at once, and no lawyer.\n\nSomeone reported [CannaMLS](https://cannamls.com) as operating as an unlicensed real estate agent, when what we ran was a marketplace. Florida, California, Colorado and one more contacted us more or less simultaneously, and they contacted us by phone. For a small company that is an alarming morning.\n\nThe first thing I did was slow it down. I could not confirm who was actually on the line, so I asked each of them to email the request from their .gov address with their identifying information attached. That was the simplest way to know I was talking to who I thought I was talking to. Then I supplied scoped information where it applied, rather than handing over everything.\n\nIt ran a few weeks with several agencies in parallel. All four closed with no violation found, and I handled all of it myself.\n\nI did not have a name for that at the time. It is requester identity verification, and skipping it is how businesses get talked into releasing records they should not have released. We were operating in a grey area, which is exactly the situation where you slow down rather than speed up.",
+   a:"Four state regulators at once, and no lawyer.\n\nSomeone reported [CannaMLS](https://cannamls.com) as operating as an unlicensed real estate agent, when what we ran was a marketplace. Florida, California, Colorado and one more contacted us more or less simultaneously, and they contacted us by phone. For a small company that is an alarming morning.\n\nThe first thing I did was slow it down. I could not confirm who was actually on the line, so I asked each of them to email the request from their .gov address with their identifying information attached. That was the simplest way to confirm they were who they said they were. Then I supplied scoped information where it applied, rather than handing over everything.\n\nIt ran about six months with several agencies in parallel. All four closed with no violation found, and I handled all of it myself.\n\nI did not have a name for that at the time. It is requester identity verification, and skipping it is how businesses get talked into releasing records they should not have released. We were operating in a gray area, which is exactly the situation where you slow down rather than speed up.",
    s:"CannaMLS, 2019 to 2022 · resolved without counsel"},
 
   {k:"Being corrected", ok:1,
    q:"How do you handle being told you got something wrong?",
-   a:"The Oklahoma regulator called to tell me our listings had a problem. We did not state that licenses could not be bought and sold, and users were speculating on the assumption that they could. He found it. I did not.\n\nI proposed a disclaimer, wrote it, put it up, and then sent it back to him to review rather than assuming my own fix was adequate. He agreed it was enough.\n\nThat last step is the part I would point at. Most companies write the disclaimer and hope. Taking it back to the person who raised it converts an untested self-assessment into a position someone with authority has actually looked at, and it costs one phone call.\n\nI am not precious about being the one who spots the problem. I care whether it gets closed properly.",
+   a:"The Oklahoma regulator called to tell me our listings had a problem. We did not state that licenses could not be bought and sold, and users were speculating on the assumption that they could. He found it. I did not.\n\nI proposed a disclaimer, wrote it, put it up, and then sent it back to him to review rather than assuming my own fix was adequate. He agreed it was enough.\n\nThat last step is the part I would point at. Most companies write the disclaimer and hope. Taking it back to the person who raised it converts an untested self-assessment into a position someone with authority has actually looked at, and it costs one phone call.\n\nIt does not matter to me who spots the problem. It matters that it gets closed properly.",
    s:"CannaMLS, 2019 to 2022"},
 
   {k:"A hard call", ok:1,
    q:"Tell me about a difficult or unpopular decision you made.",
-   a:"We reviewed every listing by hand before it went live. Not flagged content, not a sample. All of it. That is slow, it costs money, and users dislike waiting. Approved posts got an approval letter.\n\nIt was the right call for where we sat. We operated in a legally grey area, in an industry where the rules differed by state and moved often. Publishing first and taking things down after a complaint was not a risk we could carry. Pre-publication review is the more expensive trade and the correct one when the downside is regulatory rather than reputational.\n\nIt also had to coexist with the opposite goal. We let people post without creating an account, because sign-up is the largest barrier to a marketplace working at all, and collected registration afterwards. Low barrier to submit, high bar to publish.\n\nThe review caught what you would expect it to catch, including attempts to use a legitimate business platform to sell narcotics. Those did not go up. A control that has never rejected anything is a control nobody can prove works.\n\nI do a smaller version of the same job now, moderating the community forum for the [co-operative](https://www.seattlevegangroup.org). So far nobody has tried to sell narcotics on it, which I am choosing to count as progress.",
+   a:"We reviewed every listing by hand before it went live. Not flagged content, not a sample. All of it. That is slow, it costs money, and users dislike waiting. Approved posts got an approval letter.\n\nIt was the right call for where we sat. We operated in a legally gray area, in an industry where the rules differed by state and moved often. Publishing first and taking things down after a complaint was not a risk we could carry. Pre-publication review is the more expensive trade and the correct one when the downside is regulatory rather than reputational.\n\nIt also had to coexist with the opposite goal. We let people post without creating an account, because sign-up is the largest barrier to a marketplace working at all, and collected registration afterwards. Low barrier to submit, high bar to publish.\n\nThe review caught what you would expect it to catch, including attempts to use a legitimate business platform to sell narcotics. Those did not go up. A control that has never rejected anything is a control nobody can prove works.\n\nI do a smaller version of the same job now, moderating the community forum for the [co-operative](https://www.seattlevegangroup.org). So far nobody has tried to sell narcotics on it, which I am choosing to count as progress.",
    s:"CannaMLS, 2019 to 2022 · Seattle Vegan Group, current"},
 
   {k:"Why a job", ok:1,
