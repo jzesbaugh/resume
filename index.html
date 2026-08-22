@@ -290,6 +290,36 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
   footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--ink);
     font-size:12px;color:var(--ink3);line-height:1.6}
 
+  .flier{display:flex;gap:12px;margin:14px 0 4px;flex-wrap:wrap}
+  .flier figure{margin:0;flex:1 1 200px;min-width:160px}
+  .flier img{display:block;width:100%;height:auto;border-radius:6px;
+    border:1px solid var(--line);box-shadow:0 1px 4px var(--shadow)}
+  .flier figcaption{font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink3);margin:6px 0 0}
+  @media print{ .flier{display:none} }
+
+  /* Minimal branded video link. A static thumbnail on load - no iframe, no YouTube script, no
+     third-party request - until clicked. Click swaps the button for a youtube-nocookie.com
+     embed and plays inline, right on this page. Nothing is fetched from YouTube unless you
+     choose to play it. No-JS fallback is a plain outbound link via <noscript>. The play glyph
+     uses the site's own accent color, not YouTube's red, so it reads as this page's control. */
+  .ytwrap{margin:12px 0 0;max-width:320px}
+  .ytlink{display:block;position:relative;width:100%;aspect-ratio:16/9;padding:0;margin:0;
+    border-radius:6px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:0 1px 4px var(--shadow);background:#000;cursor:pointer;font:inherit}
+  .ytlink img{display:block;width:100%;height:100%;object-fit:cover;filter:brightness(.82)}
+  .ytlink .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .ytlink .play span{width:46px;height:46px;border-radius:50%;background:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.4);transition:transform .15s}
+  .ytlink .play svg{width:16px;height:16px;fill:var(--onaccent);margin-left:2px}
+  .ytlink:hover .play span{transform:scale(1.08)}
+  .ytlink:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .ytwrap iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:6px}
+  .ytcaption{font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink3);margin:6px 0 0}
+  @media print{ .ytwrap,.ytcaption{display:none} }
+
   @media (max-width:620px){
     .wrap{padding:44px 20px 72px}
     .name{font-size:34px}
@@ -384,6 +414,7 @@ compliance and operations.</p>
       <li>Directs crews of up to five across roughly 150 events a year; largest 1,000+ attendees</li>
       <li>Networked audio over IP, video switching, streaming and hybrid production</li>
       <li>Recognized six times by five different colleagues</li>
+      <li>Technical 2-Star Certified (Encore, badged via Credly)</li>
     </ul>
   </div>
 </div>
@@ -492,6 +523,14 @@ compliance and operations.</p>
   <div>
     <p class="ttl"><em>War of the Worlds: The True Story</em></p>
     <p class="body">Producer. A feature film released theatrically in 2012, reviewed by the Los Angeles Times and The Hollywood Reporter, toured fifty theatres, and completed an Academy Award qualifying run. <a href="https://en.wikipedia.org/wiki/War_of_the_Worlds:_The_True_Story">Wikipedia</a></p>
+    <div class="ytwrap" id="ytwrap">
+      <button type="button" class="ytlink" id="ytplay" data-yt="GAWWDDrrYsA" aria-label="Play the trailer">
+        <img src="wotw-trailer-thumb.png" alt="Trailer still from War of the Worlds: The True Story">
+        <span class="play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span>
+      </button>
+      <noscript><p class="ytcaption"><a href="https://www.youtube.com/watch?v=GAWWDDrrYsA">Watch the trailer on YouTube</a></p></noscript>
+    </div>
+    <p class="ytcaption">Trailer, edited by me &middot; 155K views &middot; plays inline, loads nothing from YouTube until you click</p>
   </div>
 </div>
 
@@ -500,6 +539,18 @@ compliance and operations.</p>
   <div>
     <p class="ttl">Seattle Vegan Restaurant Guide</p>
     <p class="body">A zero-dependency embeddable web app with search, filtering and offline install, running on a live site. <strong>Built with AI, reviewed and shipped by me.</strong> Open-sourced MIT with documentation written so another city can stand up its own. <a href="https://www.seattlevegangroup.org/guide">Live</a> &middot; <a href="https://github.com/jzesbaugh/svg-public">Source</a></p>
+  </div>
+</div>
+
+<div class="row">
+  <p class="lab">In circulation</p>
+  <div>
+    <p class="ttl">Seattle Vegan Group flier</p>
+    <p class="body">Designed front-to-back for a 4&times;6 postcard: full custom type and color system, built to spec with bleed and CMYK color for offset printing. Printed and out in the community now, 1,000+ copies in circulation. Not a standalone piece &mdash; it's the entry point of a deliberate funnel, flier to website to newsletter, built to turn a one-time touchpoint into an owned audience relationship.</p>
+    <div class="flier">
+      <figure><img src="svg-flier-front.png" alt="Seattle Vegan Group flier, front side: a photo of the former Vegan Haven storefront, headline reading 'Seattle deserves a vegan grocery store again,' and stats on years of operation and newsletter subscribers."><figcaption>Front</figcaption></figure>
+      <figure><img src="svg-flier-back.png" alt="Seattle Vegan Group flier, back side: co-op story copy, three ways to get involved, and a QR code linking to the newsletter signup."><figcaption>Back</figcaption></figure>
+    </div>
   </div>
 </div>
 
@@ -521,7 +572,7 @@ compliance and operations.</p>
 
 <footer>
   <p>Jesse Zesbaugh &middot; Kirkland, WA &middot; <a href="mailto:Jzesbaugh@icloud.com">Jzesbaugh@icloud.com</a><br>
-  Last updated 9 August 2026.</p>
+  Last updated 22 August 2026.</p>
 </footer>
 
 </div>
@@ -561,27 +612,22 @@ var DATA = [
 
   {k:"Something I built", ok:1,
    q:"Walk me through something you built.",
-   a:"Start with the biggest. At [CannaMLS](https://cannamls.com) I designed the marketplace itself: the interface, the permission model, the account administration behind it. I chose a Craigslist-shaped layout on purpose, because people already know how that behaves, and a user who misunderstands what he's buying is a compliance problem before he's a design problem. That platform carried more than $3.5 billion in listed assets at its peak and is still running four years after I left.\n\nThen something people actually use. I built and shipped the [Seattle Vegan Restaurant Guide](https://www.seattlevegangroup.org/guide): a zero-dependency web app with search, filtering and offline install, embedded in a live site. I open-sourced it MIT, with documentation written so another city could stand up its own. It's in use now, which I weigh above anything I've published that nobody has picked up.\n\nThen the infrastructure under it. I hold that organization's registrar, DNS, hosting, email and member data. Other project leaders hold the CMS, so they can publish without being able to touch DNS, certificates or mail routing. I deployed the edge security myself: WAF, TLS, rate limiting, bot management, tuned so verified crawlers and AI agents still get through, because a site that's perfectly secure and invisible to search has failed at its job. Part of that doubled as my degree capstone.\n\nAnd at Encore, networked audio over IP: VLANs, multicast, clock sync, switch configuration, plus the guest and client network surface at live events.",
+   a:"Start with the biggest. At [CannaMLS](https://cannamls.com) I designed the marketplace itself: the interface, the permission model, the account administration behind it. I chose a Craigslist-shaped layout on purpose, because people already know how that behaves, and a user who misunderstands what he's buying is a compliance problem before he's a design problem. That platform carried more than $3.5 billion in listed assets at its peak and is still running four years after I left.\n\nThen something people actually use. I built and shipped the [Seattle Vegan Restaurant Guide](https://www.seattlevegangroup.org/guide): a zero-dependency web app with search, filtering and offline install, embedded in a live site. I open-sourced it MIT, with documentation written so another city could stand up its own. It's in use now, which I weigh above anything I've published that nobody has picked up.\n\nThen the infrastructure under it. I hold that organization's registrar, DNS, hosting, email and member data. Other project leaders hold the CMS, so they can publish without being able to touch DNS, certificates or mail routing. I deployed the edge security myself: WAF, TLS, rate limiting, bot management, tuned so verified crawlers and AI agents still get through, because a site that's perfectly secure and invisible to search has failed at its job. I scoped it against PCI DSS as part of that work; it doesn't apply, since no payments run through the site, but I treated member data with the same care anyway rather than assume 'not regulated' meant 'not careful.' Part of that doubled as my degree capstone.\n\nAnd at Encore, networked audio over IP: VLANs, multicast, clock sync, switch configuration, plus the guest and client network surface at live events.",
    s:"CannaMLS, 2019 to 2022 · Seattle Vegan Group · Encore Global"},
+
+  {k:"Building an audience", ok:1,
+   q:"How do you think about audience and distribution?",
+   a:"A lot of social media and content strategy amounts to a shotgun: post everywhere, hope something lands, chase a follower count a platform can throttle whenever it wants. I build toward an owned list instead. A follow costs someone nothing. A newsletter signup is a decision to hear from you specifically.\n\nI ran that at [CannaMLS](https://cannamls.com), where digital marketing and content were mine to run: budget-neutral campaigns, the platform's social channels, and the newsletter itself, which I built and ran. By the time I cleaned the list through a hygiene service, stripping dead and duplicate addresses before picking Mailchimp as the send platform, it stood at roughly 11,000 subscribers. It's the same newsletter the company still publishes through today, four years after I left.\n\nI'm running the same funnel now for [Seattle Vegan Group](https://www.seattlevegangroup.org): a flier that leads to the website, which leads to the newsletter. Deliberate, not scattered, in two unrelated industries.\n\nSEO runs underneath all of it. I've done my own SEO on everything I've built, and it's the kind that takes real backlink research rather than keyword-stuffing a meta tag, which is why it actually ranks. I'm folding AI into that research now too.",
+   s:"CannaMLS, 2019 to 2022 · Seattle Vegan Group, current"},
 
   {k:"A mistake", ok:1,
    q:"Tell me about a mistake you made.",
    a:"I broke production email for an entire organization.\n\nDuring my capstone I was deploying Cloudflare on a [live non-profit site](https://www.seattlevegangroup.org). DNS changes I made while setting up SSL and routing broke IMAP on every user's desktop and phone. That one was mine, no ambiguity about it.\n\nWhat I did next is the part worth weighing. I called it degraded rather than down, because a workaround existed and I didn't want to escalate it into an outage it wasn't. I opened a ticket with the vendor, we found root cause, it was resolved.\n\nThen I wrote it up in the graded submission, under its own heading, instead of quietly leaving it out. Same document, I tracked my planned timeline against the actual one, named my own overestimation as the reason the project came in early, and declined to take credit for what I judged to be luck.\n\nI'd rather report my own outage than have someone else find it later.",
    s:"WGU capstone implementation report, August 2025"},
 
-  {k:"Under pressure", ok:1,
-   q:"Tell me about a time you were under real pressure.",
-   a:"Four state regulators at once, and no lawyer.\n\nSomeone reported [CannaMLS](https://cannamls.com) as operating as an unlicensed real estate agent. What we actually ran was a marketplace. Florida, California, Colorado and one more contacted us within days of each other, mostly by phone. For a small company that's an alarming morning.\n\nFirst thing I did was slow it down. I couldn't confirm who was actually on the line, so I asked each of them to email the request from their .gov address with their identifying information attached. Simplest way to confirm they were who they said they were. Then I gave scoped information where it applied instead of handing over everything.\n\nIt's worth saying why this wasn't a simple state matter. We never touched the product. What we did was help people transact across state lines, and that crossing is what moved the question from state ground to federal ground. There was no clean rulebook for it, so I built one out of the parts lying around: the Cole Memo priorities, Section 230, free speech protections. Cole had formally been rescinded by then, but federal financial regulators were still pointing at it, so it was still the standard worth meeting.\n\nUnderneath all of it sat one decision, which was to be on board with regulators rather than wait to be found. It ran about six months across several agencies at once. All four closed with no violation, and I handled every bit of it myself.\n\nI didn't have a name for the identity step at the time. It's requester identity verification, and skipping it is how businesses get talked into handing over records they should never have released. That's the habit a gray area teaches you. Slow down exactly when everyone wants you to hurry.",
-   s:"CannaMLS, 2019 to 2022 · resolved without counsel"},
-
-  {k:"Being corrected", ok:1,
-   q:"How do you handle being told you got something wrong?",
-   a:"The Oklahoma regulator called to tell me our listings had a problem. We hadn't stated that licenses couldn't be bought and sold, and users were speculating on the assumption that they could. He found it. I didn't.\n\nI proposed a disclaimer, wrote it, put it up, and then sent it back to him to review instead of assuming my own fix was good enough. He agreed it was.\n\nThat last step is the part I'd point at. Most companies write the disclaimer and hope. Taking it back to the person who raised it turns an untested self-assessment into a position someone with actual authority has looked at, and it cost one phone call.\n\nThere's a version of this where I get defensive, argue the wording was fine, and find out eighteen months later that it wasn't. That version is far more expensive and it doesn't even feel better at the time.\n\nIt doesn't matter to me who spots the problem. It matters that it gets closed properly.",
-   s:"CannaMLS, 2019 to 2022"},
-
   {k:"A hard call", ok:1,
    q:"Tell me about a difficult or unpopular decision you made.",
-   a:"We read every listing by hand before it went live. Not flagged content, not a sample. All of it. That's slow, it costs money, and users hate waiting. Approved posts got an approval letter.\n\nIt was the right call for where we sat. We operated in a legally gray area, in an industry where the rules differed by state and moved often. Publishing first and taking things down after a complaint wasn't a risk we could carry. Pre-publication review is the more expensive trade and the correct one when the downside is regulatory rather than reputational.\n\nIt had to coexist with the opposite goal, though. We let people post without creating an account, because sign-up is the biggest barrier to a marketplace working at all, and collected registration afterwards. Low barrier at the door, high bar at the gate.\n\nThe review caught what you'd expect it to catch, including people trying to use a legitimate business platform to sell narcotics. Those didn't go up. A control that has never rejected anything is a control nobody can prove works.\n\nI do a smaller version of the same job now, moderating the community forum for the [co-operative](https://www.seattlevegangroup.org). So far nobody has tried to sell narcotics on it, which I'm choosing to count as progress.",
+   a:"We read every listing by hand before it went live. Not flagged content, not a sample. All of it. That's slow, it costs money, and users hate waiting. Approved posts got an approval letter.\n\nIt was the right call for where we sat. We operated in an industry the law hadn't caught up to yet, where the rules differed by state and moved often. Publishing first and taking things down after a complaint wasn't a risk we could carry. Pre-publication review is the more expensive trade and the correct one when the downside is regulatory rather than reputational.\n\nIt had to coexist with the opposite goal, though. We let people post without creating an account, because sign-up is the biggest barrier to a marketplace working at all, and collected registration afterwards. Low barrier at the door, high bar at the gate.\n\nThe review caught what you'd expect it to catch, including people trying to use a legitimate business platform to sell narcotics. Those didn't go up. A control that has never rejected anything is a control nobody can prove works.\n\nI do a smaller version of the same job now, moderating the community forum for the [co-operative](https://www.seattlevegangroup.org). So far nobody has tried to sell narcotics on it, which I'm choosing to count as progress.",
    s:"CannaMLS, 2019 to 2022 · Seattle Vegan Group, current"},
 
   {k:"Why a job", ok:1,
@@ -598,6 +644,11 @@ var DATA = [
    q:"What is your AI experience?",
    a:"It's on this page because everyone's asking, so here's the plain version.\n\nThere are two things I've built with AI that you can go look at right now. One is the [restaurant guide](https://www.seattlevegangroup.org/guide) for the vegan co-op: I built it with AI, it's live, and people use it to find somewhere to eat. The other is this. The page you're reading was put together the same way, which is why it's sitting down there in Selected work. If you want to know what my AI work looks like, you're already looking at it.\n\nThe part that took actual effort wasn't getting it to produce things. That's the easy bit now. It was catching what it got wrong. On this page alone it invented a set of interview questions out of thin air, and twice it wrote sentences giving me credit for things other people had done. Those would have gone out if I hadn't known better.\n\nSo I keep a written set of rules for how I work with these tools, and I test them instead of assuming they help. Some of my own rules turned out to make no difference at all, and I only found that out because I checked. That's most of the skill, honestly. Knowing it's confidently wrong sometimes, and building the habit of looking.\n\nWhat I haven't done is the engineering side: no training models, no datasets, none of the specialist tooling. The [testing method is published](https://github.com/jzesbaugh/llm-instruction-evals) on GitHub — three versions of the protocol, the failure taxonomy, and the case studies, including the ones where testing proved me wrong. The rule set it tests is mine and stays private.",
    s:"github.com/jzesbaugh/llm-instruction-evals, MIT licensed"},
+
+  {k:"Under pressure", ok:1,
+   q:"Tell me about a time you were under real pressure.",
+   a:"Four state regulators at once, and no lawyer.\n\nSomeone reported [CannaMLS](https://cannamls.com) as operating as an unlicensed real estate agent. What we actually ran was a marketplace. Florida, California, Colorado and one more contacted us within days of each other, mostly by phone. For a small company that's an alarming morning.\n\nFirst thing I did was slow it down. I couldn't confirm who was actually on the line, so I asked each of them to email the request from their .gov address with their identifying information attached. Simplest way to confirm they were who they said they were. Then I gave scoped information where it applied instead of handing over everything.\n\nIt's worth saying why this wasn't a simple state matter. We never touched the product. What we did was help people transact across state lines, and that crossing is what moved the question from state ground to federal ground. There was no clean rulebook for it, so I built one out of the parts lying around: the Cole Memo priorities, Section 230, free speech protections. Cole had formally been rescinded by then, but federal financial regulators were still pointing at it, so it was still the standard worth meeting.\n\nUnderneath all of it sat one decision, which was to be on board with regulators rather than wait to be found. It ran about six months across several agencies at once. All four closed with no violation, and I handled every bit of it myself.\n\nI didn't have a name for the identity step at the time. It's requester identity verification, and skipping it is how businesses get talked into handing over records they should never have released. That's the habit a gray area teaches you. Slow down exactly when everyone wants you to hurry.",
+   s:"CannaMLS, 2019 to 2022 · resolved without counsel"},
 
   /* PHASE 2 ONLY - the two decline entries (Kubernetes, departmental budget) and the
      no-hallucination disclaimer were removed 2026-08-07. They existed to prove a chatbot would
@@ -708,6 +759,31 @@ var DATA = [
 (function(){
   var as=document.querySelectorAll('a[href^="http"]');
   for(var i=0;i<as.length;i++){ as[i].target='_blank'; as[i].rel='noopener noreferrer'; }
+})();
+
+/* Trailer play-in-place. Loads nothing from YouTube until clicked - the thumbnail is a plain
+   local image with zero third-party requests. On click, swaps the button for an iframe on
+   youtube-nocookie.com (YouTube's privacy-enhanced domain) with autoplay, so the video plays
+   right here instead of navigating away. This is an enhancement, not a requirement: the
+   <noscript> fallback above is a plain outbound link, so a no-JS reader still gets a working
+   path to the video. */
+(function(){
+  var btn=document.getElementById('ytplay'), wrap=document.getElementById('ytwrap');
+  if(!btn || !wrap) return;
+  btn.addEventListener('click', function(){
+    var id=btn.getAttribute('data-yt');
+    var iframe=document.createElement('iframe');
+    iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0';
+    iframe.title='War of the Worlds: The True Story - trailer';
+    iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen=true;
+    /* Without this, YouTube's player throws "Error 153: configuration error" whenever the
+       referrer is blank or blocked - which is exactly what happens when this file is opened
+       directly (file://) instead of served over http/https. Harmless to set unconditionally. */
+    iframe.referrerPolicy='strict-origin-when-cross-origin';
+    wrap.innerHTML='';
+    wrap.appendChild(iframe);
+  });
 })();
 
 /* Print / Save as PDF. The OS print dialog offers "Save as PDF" on both macOS and Windows, so

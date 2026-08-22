@@ -5,9 +5,11 @@ An interactive resume. Twelve interview questions, answered in advance, in one H
 **Live:** <https://jzesbaugh.github.io/resume/>
 
 ```
-index.html    the whole thing — markup, styles, answers
-og.png        1200×630 social preview card
-README.md     this file
+index.html            the whole thing — markup, styles, answers
+og.png                1200×630 social preview card
+svg-flier-front.png   Selected work image — a printed piece, front
+svg-flier-back.png    Selected work image — a printed piece, back
+README.md             this file
 ```
 
 ---
@@ -41,7 +43,7 @@ asked rather than inventing a set that flattered the material I happened to have
 |---|---|
 | **One file, no dependencies** | No build step, no npm, no CDN, nothing to rot. Download it and it works offline. |
 | **Content doesn't need JavaScript** | Everything except the question buttons is plain HTML. Screen readers, text browsers, crawlers and locked-down corporate machines all get the full resume. |
-| **No tracking, no analytics, no cookies** | Nobody needs to know you looked. |
+| **No tracking, no analytics, no cookies — by default** | Nobody needs to know you looked. One exception: the *War of the Worlds* trailer under Selected work is a plain local thumbnail until you click it. Clicking swaps it for a `youtube-nocookie.com` embed and plays the video right there. Nothing is fetched from YouTube unless you choose to play it — but once you do, that's YouTube's player, not mine. |
 | **No model call, no API key** | Nothing is generated at runtime, so nothing can be invented. |
 | **It prints, and it prints everything** | Somebody is going to print this. The stylesheet resets whichever theme you're in back to ink on paper, drops the buttons, and outputs **all twelve** answers — not just the one that happened to be on screen. Your browser's print dialog will Save as PDF. |
 | **Three themes, dark by default** | Dark, light, and a phosphor terminal theme. Your choice persists. Dark as the default deliberately overrides your system setting, which is only defensible because the toggle is right there. |
