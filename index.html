@@ -320,6 +320,18 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
     color:var(--ink3);margin:6px 0 0}
   @media print{ .ytwrap,.ytcaption{display:none} }
 
+  /* Minimal phone frame for an app screenshot - reads as "this is an app", not a browser
+     window. Bezel is near-black in every theme on purpose (a phone is a phone regardless of
+     site theme); the screen itself clips the screenshot with rounded corners to match. */
+  .phone{max-width:230px;margin:14px 0 4px;background:#0c0c0c;border-radius:30px;
+    padding:14px 10px 12px;box-shadow:0 3px 14px var(--shadow2)}
+  .phone .cam{width:40px;height:5px;border-radius:3px;background:#000;margin:0 auto 8px;
+    box-shadow:inset 0 0 0 1px #262626}
+  .phone .screen{border-radius:18px;overflow:hidden;border:1px solid #000}
+  .phone .screen img{display:block;width:100%;height:auto}
+  .phone .home{width:64px;height:4px;border-radius:2px;background:#333;margin:9px auto 0}
+  @media print{ .phone{display:none} }
+
   @media (max-width:620px){
     .wrap{padding:44px 20px 72px}
     .name{font-size:34px}
@@ -539,13 +551,19 @@ compliance and operations.</p>
   <div>
     <p class="ttl">Seattle Vegan Restaurant Guide</p>
     <p class="body">A zero-dependency embeddable web app with search, filtering and offline install, running on a live site. <strong>Built with AI, reviewed and shipped by me.</strong> Open-sourced MIT with documentation written so another city can stand up its own. <a href="https://www.seattlevegangroup.org/guide">Live</a> &middot; <a href="https://github.com/jzesbaugh/svg-public">Source</a></p>
+    <a class="phone" href="https://www.seattlevegangroup.org/guide" aria-label="Open the live guide (opens in a new tab)">
+      <span class="cam" aria-hidden="true"></span>
+      <span class="screen"><img src="svg-guide-screenshot.png" alt="Screenshot of the Seattle Vegan Restaurant Guide: search bar, area filter chips, and a scrollable list of vegan restaurants"></span>
+      <span class="home" aria-hidden="true"></span>
+    </a>
+    <p class="ytcaption">Live &middot; click to open</p>
   </div>
 </div>
 
 <div class="row">
   <p class="lab">In circulation</p>
   <div>
-    <p class="ttl">Seattle Vegan Group flier</p>
+    <p class="ttl">Seattle Vegan Group Flier</p>
     <p class="body">Designed front-to-back for a 4&times;6 postcard: full custom type and color system, built to spec with bleed and CMYK color for offset printing. Printed and out in the community now, 1,000+ copies in circulation. Not a standalone piece &mdash; it's the entry point of a deliberate funnel, flier to website to newsletter, built to turn a one-time touchpoint into an owned audience relationship.</p>
     <div class="flier">
       <figure><img src="svg-flier-front.png" alt="Seattle Vegan Group flier, front side: a photo of the former Vegan Haven storefront, headline reading 'Seattle deserves a vegan grocery store again,' and stats on years of operation and newsletter subscribers."><figcaption>Front</figcaption></figure>
@@ -557,7 +575,7 @@ compliance and operations.</p>
 <div class="row">
   <p class="lab">Published</p>
   <div>
-    <p class="ttl">Blind evaluation protocol for LLM instruction sets</p>
+    <p class="ttl">Blind Evaluation Protocol for LLM Instruction Sets</p>
     <p class="body">I write the rules my AI assistant runs on, then test whether they actually change anything. Pass and fail are written down before a run, used questions get retired, and — the part that matters — the same questions are asked again with no rules at all, as a control. That comparison is the only way to tell a rule that works from a rule that was never needed, and it showed several of mine were not earning their place. The system also feeds itself: when something goes wrong in real work it becomes a candidate rule, gets tested against the control, and is kept or dropped on the result. Twice now the testing has proved one of my own predictions wrong. Published, not yet adopted by anyone else. <a href="https://github.com/jzesbaugh/llm-instruction-evals">Source</a></p>
   </div>
 </div>
@@ -572,7 +590,8 @@ compliance and operations.</p>
 
 <footer>
   <p>Jesse Zesbaugh &middot; Kirkland, WA &middot; <a href="mailto:Jzesbaugh@icloud.com">Jzesbaugh@icloud.com</a><br>
-  Last updated 22 August 2026.</p>
+  Last updated 22 August 2026.<br>
+  This page is maintained with AI assistance &mdash; Claude, via Cowork, closely supervised. See the AI answer above for what that means in practice.</p>
 </footer>
 
 </div>
@@ -637,7 +656,7 @@ var DATA = [
 
   {k:"Career change", ok:1,
    q:"Why move from media into IT?",
-   a:"I didn't arrive at IT from a classroom. I arrived at the classroom from IT.\n\nFrom 2019 to 2022 I was CIO at [CannaMLS](https://cannamls.com), and the platform side of that company was one person. That meant access control and account administration, privacy and data retention, third-party vendor risk, regulatory liaison, incident response, and reading everything users posted before it published. Nobody called it a security job at the time. It was one.\n\nI went back to school full time in 2022 to put a credential and a shared vocabulary behind work I'd already been doing.\n\nThe drop in responsibility was the point, not a side effect. I wanted a few years of straightforward jobs while I studied: a year with AmeriCorps, which was also a chance to give something back, then Encore, which is demanding in the moment and over when the event is. I'd been carrying payroll and regulators since my twenties, and I wanted to set that down long enough to finish a degree properly.\n\nI treat security as baseline IT rather than a separate discipline. If someone's running infrastructure without it, that's the thing worth worrying about.",
+   a:"I didn't move away from media into IT. The two were never separate for me.\n\nFrom 2019 to 2022 I was CIO at [CannaMLS](https://cannamls.com), and the platform side of that company was one person: access control and account administration, privacy and data retention, third-party vendor risk, regulatory liaison, incident response, reading everything users posted before it published, while also running the company's audience and content side, the same kind of work behind the newsletter story elsewhere on this page. Nobody called either half a specialist's job. They were both mine, at the same time.\n\nI went back to school full time in 2022 to put a credential and a shared vocabulary behind the security half specifically. I never set the other half down.\n\nThe drop in responsibility was the point, not a side effect. I wanted a few years of straightforward jobs while I studied: a year with AmeriCorps, which was also a chance to give something back, then Encore, which is demanding in the moment and over when the event is. I'd been carrying payroll and regulators since my twenties, and I wanted to set that down long enough to finish a degree properly.\n\nI treat security as baseline for any of it, content, marketplace or infrastructure, rather than a separate discipline. If someone's running any of those without it, that's the thing worth worrying about.",
    s:"CannaMLS, 2019 to 2022 · WGU, September 2022 to present"},
 
   {k:"AI", ok:1,
@@ -773,7 +792,15 @@ var DATA = [
   btn.addEventListener('click', function(){
     var id=btn.getAttribute('data-yt');
     var iframe=document.createElement('iframe');
-    iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0';
+    /* Minimal-chrome params: no related-video suggestions from other channels (rel=0), no
+       floating annotation cards (iv_load_policy=3), no fullscreen button (fs=0), a neutral
+       progress-bar color instead of YouTube red (color=white), captions off by default
+       (cc_load_policy=0), and playsinline for iOS so it doesn't force native fullscreen.
+       modestbranding is deliberately NOT set to try to hide the YouTube logo further - YouTube's
+       embed terms require the logo stay visible, and the parameter has had no real effect on it
+       since ~2018 anyway. This is the honest ceiling on how minimal the player can look. */
+    iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)
+      +'?autoplay=1&rel=0&iv_load_policy=3&fs=0&color=white&cc_load_policy=0&playsinline=1';
     iframe.title='War of the Worlds: The True Story - trailer';
     iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     iframe.allowFullscreen=true;
