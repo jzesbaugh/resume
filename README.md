@@ -1,15 +1,17 @@
 # jzesbaugh.github.io/resume
 
-An interactive resume. Twelve interview questions, answered in advance, in one HTML file.
+An interactive resume. Thirteen interview questions, answered in advance, in one HTML file.
 
 **Live:** <https://jzesbaugh.github.io/resume/>
 
 ```
-index.html            the whole thing — markup, styles, answers
-og.png                1200×630 social preview card
-svg-flier-front.png   Selected work image — a printed piece, front
-svg-flier-back.png    Selected work image — a printed piece, back
-README.md             this file
+index.html                 the whole thing — markup, styles, answers
+og.png                     1200×630 social preview card
+svg-flier-front.png        Selected work image — a printed piece, front
+svg-flier-back.png         Selected work image — a printed piece, back
+svg-guide-screenshot.png   Selected work image — phone-mockup screenshot of a live app
+wotw-trailer-thumb.png     Selected work image — self-hosted trailer thumbnail, plays inline
+README.md                  this file
 ```
 
 ---
@@ -45,10 +47,10 @@ asked rather than inventing a set that flattered the material I happened to have
 | **Content doesn't need JavaScript** | Everything except the question buttons is plain HTML. Screen readers, text browsers, crawlers and locked-down corporate machines all get the full resume. |
 | **No tracking, no analytics, no cookies — by default** | Nobody needs to know you looked. One exception: the *War of the Worlds* trailer under Selected work is a plain local thumbnail until you click it. Clicking swaps it for a `youtube-nocookie.com` embed and plays the video right there. Nothing is fetched from YouTube unless you choose to play it — but once you do, that's YouTube's player, not mine. |
 | **No model call, no API key** | Nothing is generated at runtime, so nothing can be invented. |
-| **It prints, and it prints everything** | Somebody is going to print this. The stylesheet resets whichever theme you're in back to ink on paper, drops the buttons, and outputs **all twelve** answers — not just the one that happened to be on screen. Your browser's print dialog will Save as PDF. |
+| **It prints, and it prints everything** | Somebody is going to print this. The stylesheet resets whichever theme you're in back to ink on paper, drops the buttons, and outputs **every** answer — not just the one that happened to be on screen. Your browser's print dialog will Save as PDF. |
 | **Three themes, dark by default** | Dark, light, and a phosphor terminal theme. Your choice persists. Dark as the default deliberately overrides your system setting, which is only defensible because the toggle is right there. |
 | **Email only** | It's a public page. Phone and street address are deliberately absent. |
-| **Every answer cites its source, and links it** | So a claim can be checked rather than taken on faith. Company and project names inside the answers link out on first mention. |
+| **Every answer cites its source, and links it** | So a claim can be checked rather than taken on faith. Two kinds of link, on purpose: an organization mentioned by name links to that organization's own page, every time it's named; a specific project or client mentioned inside a story links to *my own* write-up of that work, never to the client's site — a client link sends a reader away from evidence and toward a page with none of it. |
 | **External links open in a new tab** | A deliberate departure from the usual advice, which is that you shouldn't hijack someone's navigation — and I'd normally agree. A resume has a specific failure mode though: a reader clicks through to Wikipedia and never comes back. Keeping the page open is worth more here than the principle costs. The condition that makes it acceptable is the small ↗ marker on every outbound link, so you're told before you click rather than after. `rel="noopener"` on all of them. `mailto:` is excluded, since it would leave a blank tab behind. |
 | **One accent color** | Dark pea green. Enough to have a point of view, restrained enough for a government hiring panel. |
 | **It describes the record, not a target role** | The title says what I have done, not what I am applying for. I have not picked a lane, and a page that picks one for me narrows the conversation before it has started. |
@@ -119,7 +121,7 @@ you look good reads like a page that only makes you look good.
 
 ## Honest limits
 
-- **It can't answer anything I didn't anticipate.** Twelve questions is not an interview. It's
+- **It can't answer anything I didn't anticipate.** Thirteen questions is not an interview. It's
   a head start on one.
 - **It can't answer "why do you want to work *here*".** That's the best question in any
   interview and a generic page structurally cannot do it. Ask me directly.
@@ -141,7 +143,7 @@ Written August 2026. Built and revised in a single long session, including sever
 the first attempt was wrong and had to be reversed. The question set was originally invented
 rather than researched, and missed the most-asked interview question entirely. The weighting put
 a university capstone above a national platform because there happened to be more documentation
-about the capstone. And printing quietly produced a resume missing eleven of its twelve answers
+about the capstone. And printing quietly produced a resume missing all but one of its answers
 for longer than I'd like to admit.
 
 All fixed. It felt worth mentioning on a page about being straight with people.
