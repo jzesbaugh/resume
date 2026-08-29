@@ -8,7 +8,7 @@
 (function(){var t="dark";try{t=localStorage.getItem("jz-theme")||"dark";}catch(e){}
 document.documentElement.setAttribute("data-theme",t);})();</script>
 <title>Jesse Zesbaugh — Twenty years building and running small organizations</title>
-<meta name="description" content="Twenty years building and running small organizations, usually owning whatever function was too small to justify a specialist. Thirteen interview questions, answered.">
+<meta name="description" content="Twenty years building and running small organizations, usually owning whatever function was too small to justify a specialist. Fourteen interview questions, answered.">
 <meta name="author" content="Jesse Zesbaugh">
 <meta name="theme-color" content="#0F0F0F">
 <link rel="canonical" href="https://jzesbaugh.github.io/resume/">
@@ -19,18 +19,18 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
 <meta property="profile:first_name" content="Jesse">
 <meta property="profile:last_name" content="Zesbaugh">
 <meta property="og:title" content="Jesse Zesbaugh — Twenty years building and running small organizations">
-<meta property="og:description" content="Twenty years building and running small organizations, most often as whoever owned the functions nobody else did. Thirteen interview questions, answered from the record.">
+<meta property="og:description" content="Twenty years building and running small organizations, most often as whoever owned the functions nobody else did. Fourteen interview questions, answered from the record.">
 <meta property="og:url" content="https://jzesbaugh.github.io/resume/">
 <meta property="og:image" content="https://jzesbaugh.github.io/resume/og.png">
 <meta property="og:image:secure_url" content="https://jzesbaugh.github.io/resume/og.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Jesse Zesbaugh. Twenty years building and running small organizations. Thirteen interview questions, answered.">
+<meta property="og:image:alt" content="Jesse Zesbaugh. Twenty years building and running small organizations. Fourteen interview questions, answered.">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Jesse Zesbaugh — Twenty years building and running small organizations">
-<meta name="twitter:description" content="Usually owning whatever function was too small to justify a specialist. Thirteen interview questions, answered from the record.">
+<meta name="twitter:description" content="Usually owning whatever function was too small to justify a specialist. Fourteen interview questions, answered from the record.">
 <meta name="twitter:image" content="https://jzesbaugh.github.io/resume/og.png">
 <meta name="twitter:image:alt" content="Jesse Zesbaugh. Twenty years building and running small organizations.">
 
@@ -349,7 +349,7 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
     body{background:#fff;color:#000;font-size:11pt}
     .wrap{max-width:none;padding:0}
     /* Interactive controls and the single-answer panel drop out; the full Q&A prints instead,
-       so a printed copy contains ALL thirteen answers regardless of what was on screen. */
+       so a printed copy contains ALL fourteen answers regardless of what was on screen. */
     .chips,.note,.cue,.bar,.ans{display:none}
     .printonly{display:block}
     .printonly .pq{font-size:11.5pt;font-weight:700;margin:14pt 0 3pt;page-break-after:avoid}
@@ -584,7 +584,7 @@ usually me.</p>
   <p class="lab">You are here</p>
   <div>
     <p class="ttl">This page</p>
-    <p class="body"><strong>Also built with AI</strong>, then read line by line, which is where the mistakes turned up. One HTML file. No dependencies, no build step, no tracking and no analytics. The whole resume renders with JavaScript disabled, and it prints properly. Documented so you can fork it and answer your own thirteen questions. <a href="https://github.com/jzesbaugh/resume">Source and README</a></p>
+    <p class="body"><strong>Also built with AI</strong>, then read line by line, which is where the mistakes turned up. One HTML file. No dependencies, no build step, no tracking and no analytics. The whole resume renders with JavaScript disabled, and it prints properly. Documented so you can fork it and answer your own fourteen questions. <a href="https://github.com/jzesbaugh/resume">Source and README</a></p>
   </div>
 </div>
 
@@ -648,6 +648,11 @@ var DATA = [
    q:"How do you handle conflict?",
    a:"I try to stay goal-oriented, because that's what keeps ego out of it. The question that matters is whether an idea moves the actual goal forward, not whose idea it was or who has to be right for it to happen. Most disagreements don't survive that reframe — they were never really about the thing being argued, they were about ownership of the answer.\n\nWhen it's more than that — when the disagreement is real and not just friction from proximity — my instinct is to step back rather than push it to a resolution myself, and bring in someone with no stake in either side's answer. Their job isn't to referee, it's to find where the actual misunderstanding is. Most conflict I've seen turns out to be two people arguing past each other about different things, and a third party sees that faster than either side can, because neither side can see past its own version of it.\n\nI don't have a named example to walk you through, and that's deliberate rather than a gap. A conflict that gets mediated well doesn't turn into a story — it turns into a working relationship nobody has to explain afterward. The ones that become anecdotes are usually the ones that didn't get handled this way. I'd rather have the boring outcome than the good story.",
    s:"Personal working principle, not tied to a single incident by design"},
+
+  {k:"A hard call", ok:1,
+   q:"Tell me about a hard call you had to make.",
+   a:"A hundred actresses broke my voting system in a day.\n\nIn 2013 I was in preproduction on [10 Days in a Madhouse](https://en.wikipedia.org/wiki/10_Days_in_a_Madhouse) — it went to theatres in 2015 and opened the Bentonville Film Festival — and we ran an open casting stunt called the Nellie Bly Star Search. Over a hundred actresses uploaded audition videos, the public voted for a favorite, and the vote count became a talking point for the production. I was early in my programming career and hired the voting system out on Upwork for a couple hundred dollars.\n\nIt didn't occur to me that a hundred people auditioning for a real part had every reason to break it. Within a day the vote counts weren't just high, they were absurd — hundreds to thousands an hour, clearly automated. There was no clean fix without shutting the whole thing down mid-contest.\n\nThe hard call wasn't technical. It was deciding what the vote was actually for. It was never going to cast the film — the producers were always going to choose on talent, and they did. The vote was actually for attention, and a wildly popular-looking contest was doing that job better broken than it would have working as designed. So we let it ride and moved on, because the goal was making the movie, not running a perfect star search.\n\nI'd build that differently today — mainly by asking, before launch, who's going to want to beat this and how. But I won't pretend I didn't enjoy watching a couple hundred dollars of Upwork code get run over by a hundred actresses who wanted a part badly enough to figure out an exploit faster than I built the thing.",
+   s:"As told by Jesse, 2026; not independently corroborated — the campaign appears to be offline and no press or archived trace of it could be found"},
 
   {k:"Running a project", ok:1,
    q:"How do you approach managing a project from start to finish, especially with a team involved?",
