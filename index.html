@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>/* Set theme before first paint so there is no flash. Dark is the default; a stored
+<script>/* Set theme before first paint so there is no flash. Light is the default; a stored
    choice wins. Wrapped because localStorage throws in some privacy modes. */
-(function(){var t="dark";try{t=localStorage.getItem("jz-theme")||"dark";}catch(e){}
+(function(){var t="light";try{t=localStorage.getItem("jz-theme")||"light";}catch(e){}
 document.documentElement.setAttribute("data-theme",t);})();</script>
 <title>Jesse Zesbaugh — Twenty years building and running small organizations</title>
 <meta name="description" content="Twenty years building and running small organizations, usually owning whatever function was too small to justify a specialist. Fourteen interview questions, answered.">
@@ -87,7 +87,7 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
   paragraph. The lead is the two things any hiring manager can grasp without translation: an app
   people actually use, and this page. Do not re-promote the methodology or reintroduce the jargon.
 
-  THEMES (rev 3i): three - dark (default), light, terminal. The theme button cycles and always
+  THEMES (rev 3j): three - light (default), dark, terminal. The theme button cycles and always
   advertises the NEXT one. Terminal is opt-in phosphor-on-black in monospace; because nobody
   sees it unless they choose it, it does not position him by default, which was the original
   objection to building it. The green is deliberately NOT the classic #33FF33 - that vibrates
@@ -112,12 +112,12 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
   decision to the reader), random-question button (undercuts the deliberate ordering), and a
   terminal/monospace theme (reads as trying too hard, and fights the build-neutral decision).
 
-  THEME (rev 3g): dark by DEFAULT, with a toggle in the header. Set via data-theme on <html>,
-  not prefers-color-scheme, because Jesse wants everyone to land on dark. A tiny inline script
-  in <head> applies the stored choice before first paint so there is no white flash. Choice
-  persists in localStorage, wrapped in try/catch because it throws in some privacy modes; the
-  fallback is simply dark. The <html> tag also carries data-theme="dark" so no-JS readers get
-  dark rather than a broken half-state. Chip shadows are now vars - the hardcoded black ones
+  THEME (rev 3j): light by DEFAULT, with a toggle in the header. Set via data-theme on <html>,
+  not prefers-color-scheme, because Jesse wants everyone to land on the same first impression.
+  A tiny inline script in <head> applies the stored choice before first paint so there is no
+  flash. Choice persists in localStorage, wrapped in try/catch because it throws in some privacy
+  modes; the fallback is simply light. The <html> tag also carries data-theme="light" so no-JS
+  readers get light rather than a broken half-state. Chip shadows are now vars - the hardcoded black ones
   were invisible on a dark background.
 
   BUILD-NEUTRAL (rev 3f) - A1 is undecided BY CHOICE until a real posting exists. An earlier
@@ -688,7 +688,7 @@ var DATA = [
      left in place, dormant, because the live-model version will need them. */
 ];
 
-/* Theme toggle. Defaults to dark; a stored choice persists. The button is labelled with the
+/* Theme toggle. Defaults to light; a stored choice persists. The button is labelled with the
    ACTION, not the current state - "Light" means "switch to light" - because a toggle labelled
    with its current state is ambiguous about what clicking it does. */
 (function(){
@@ -701,7 +701,7 @@ var DATA = [
      click has a predictable result. */
   var ORDER=['dark','light','terminal'];
   var META={dark:{icon:MOON,label:'Dark'},light:{icon:SUN,label:'Light'},terminal:{icon:TERM,label:'Terminal'}};
-  function current(){ var t=root.getAttribute('data-theme'); return ORDER.indexOf(t)>-1 ? t : 'dark'; }
+  function current(){ var t=root.getAttribute('data-theme'); return ORDER.indexOf(t)>-1 ? t : 'light'; }
   function next(){ return ORDER[(ORDER.indexOf(current())+1) % ORDER.length]; }
   function paint(){
     var n=next();
