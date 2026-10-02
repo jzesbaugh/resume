@@ -8,7 +8,7 @@
 (function(){var t="light";try{t=localStorage.getItem("jz-theme")||"light";}catch(e){}
 document.documentElement.setAttribute("data-theme",t);})();</script>
 <title>Jesse Zesbaugh — Twenty years building and running small organizations</title>
-<meta name="description" content="Twenty years building and running small organizations, usually owning whatever function was too small to justify a specialist. Fourteen interview questions, answered.">
+<meta name="description" content="Twenty years building and running small organizations, usually owning whatever function was too small to justify a specialist. Builds with AI daily and publishes research on catching its mistakes. Fourteen interview questions, answered.">
 <meta name="author" content="Jesse Zesbaugh">
 <meta name="theme-color" content="#0F0F0F">
 <link rel="canonical" href="https://jzesbaugh.github.io/resume/">
@@ -19,7 +19,7 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
 <meta property="profile:first_name" content="Jesse">
 <meta property="profile:last_name" content="Zesbaugh">
 <meta property="og:title" content="Jesse Zesbaugh — Twenty years building and running small organizations">
-<meta property="og:description" content="Twenty years building and running small organizations, most often as whoever owned the functions nobody else did. Fourteen interview questions, answered from the record.">
+<meta property="og:description" content="Twenty years building and running small organizations, most often as whoever owned the functions nobody else did. Builds with AI daily and publishes research on catching its mistakes. Fourteen interview questions, answered from the record.">
 <meta property="og:url" content="https://jzesbaugh.github.io/resume/">
 <meta property="og:image" content="https://jzesbaugh.github.io/resume/og.png">
 <meta property="og:image:secure_url" content="https://jzesbaugh.github.io/resume/og.png">
@@ -30,7 +30,7 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Jesse Zesbaugh — Twenty years building and running small organizations">
-<meta name="twitter:description" content="Usually owning whatever function was too small to justify a specialist. Fourteen interview questions, answered from the record.">
+<meta name="twitter:description" content="Usually owning whatever function was too small to justify a specialist. Builds with AI daily and publishes research on catching its mistakes. Fourteen interview questions, answered from the record.">
 <meta name="twitter:image" content="https://jzesbaugh.github.io/resume/og.png">
 <meta name="twitter:image:alt" content="Jesse Zesbaugh. Twenty years building and running small organizations.">
 
@@ -43,7 +43,7 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
   "image": "https://jzesbaugh.github.io/resume/og.png",
   "email": "mailto:Jzesbaugh@icloud.com",
   "jobTitle": "Technical Lead, Venues",
-  "description": "Twenty years building and running small organizations, usually owning whatever function was too small to justify a specialist.",
+  "description": "Twenty years building and running small organizations, usually owning whatever function was too small to justify a specialist. Builds with AI daily and publishes research on catching its mistakes.",
   "address": { "@type": "PostalAddress", "addressLocality": "Kirkland", "addressRegion": "WA", "addressCountry": "US" },
   "sameAs": [
     "https://www.linkedin.com/in/jzesbaugh",
@@ -66,7 +66,9 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
     "Communications and media relations",
     "Non-profit and co-operative operations",
     "Consumer audience growth and content",
-    "AI evaluation and governance"
+    "AI evaluation and governance",
+    "LLM instruction design and testing",
+    "AI output provenance and verification"
   ]
 }
 </script>
@@ -79,13 +81,11 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
   tooling. og.png MUST be uploaded alongside this file or every shared link renders imageless.
   Absolute URLs are required - relative paths do not resolve for social scrapers.
 
-  AI ANSWER (rev 3j): rewritten in plain language after Jesse flagged the draft as "a foreign
-  language" that only an AI engineer would follow. The methodology - versioned instruction set,
-  tested against a control, rules that lost to no-rules - is real and further along than the
-  published repo, but it is UNPUBLISHED and uninspectable, and per Check 0 it must not outrank
-  things a reader can open. So it is framed as METHOD, not artifact, and demoted to the last
-  paragraph. The lead is the two things any hiring manager can grasp without translation: an app
-  people actually use, and this page. Do not re-promote the methodology or reintroduce the jargon.
+  AI ANSWER (rev 5a, 2026-10-02): Jesse's call - the answer now leads on AI competence, and the
+  page as a whole is meant to show it. Rev 3j kept the methodology out of the lead because it was
+  unpublished; both the testing method and the Evidentiality Framework are now published and
+  inspectable, so they sit beside the app and this page as things a reader can open. Still plain
+  language, no jargon.
 
   THEMES (rev 3j): three - light (default), dark, terminal. The theme button cycles and always
   advertises the NEXT one. Terminal is opt-in phosphor-on-black in monospace; because nobody
@@ -396,7 +396,7 @@ document.documentElement.setAttribute("data-theme",t);})();</script>
 
 <p class="lede">Twenty years in small organizations, mostly ones I started. At that size the org chart
 is a polite fiction — whatever isn't covered falls to whoever's paying attention, and that was
-usually me.</p>
+usually me. These days a lot of that is AI: I build with it every day, test what it gets wrong, and publish what I find.</p>
 
 <p class="sec">Ask</p>
 
@@ -575,8 +575,8 @@ usually me.</p>
 <div class="row">
   <p class="lab">Published</p>
   <div>
-    <p class="ttl">Blind Evaluation Protocol for LLM Instruction Sets</p>
-    <p class="body">I write the rules my AI assistant runs on, then test whether they actually change anything. Pass and fail are written down before a run, questions get retired once they've been used, and — the part that matters — the same questions are asked again with no rules at all, as a control. That comparison is the only way to tell a rule that works from a rule that was never needed, and it showed several of mine were not earning their place. The system also restocks itself: when something goes wrong in real work it becomes a candidate rule, gets tested against the control, and is kept or dropped on the result. Twice now the testing has proved one of my own predictions wrong. Published, not yet adopted by anyone else. <a href="https://github.com/jzesbaugh/llm-instruction-evals">Source</a></p>
+    <p class="ttl">Evidentiality Framework for AI</p>
+    <p class="body">A small plain-text notation that labels where each claim in AI-written text comes from: <strong>given</strong> (it was in the material the AI was handed), <strong>checked</strong> (verified against a named source) or <strong>generated</strong> (the AI's own inference). The point is that the difference survives when text gets copied, summarized or handed from one AI agent to the next, so it can be audited later. It started as breadcrumbs in the rules I run my own assistant on, an audit trail for myself, before I saw it had more potential. No retraining, model changes or special infrastructure required; it all happens at the prompt. Early findings from small tests, mostly on one model family, published so other people can test it, break it and make it better. <a href="https://evidentiality-framework.org/">Site</a> &middot; <a href="https://github.com/jzesbaugh/Evidentiality_Framework">Source</a></p>
   </div>
 </div>
 
@@ -590,7 +590,7 @@ usually me.</p>
 
 <footer>
   <p>Jesse Zesbaugh &middot; Kirkland, WA &middot; <a href="mailto:Jzesbaugh@icloud.com">Jzesbaugh@icloud.com</a><br>
-  Last updated 22 August 2026.<br>
+  Last updated 2 October 2026.<br>
   This page is maintained with AI assistance &mdash; Claude, via Cowork, closely supervised. See the AI answer above for what that means in practice.</p>
 </footer>
 
@@ -671,8 +671,8 @@ var DATA = [
 
   {k:"AI", ok:1,
    q:"What is your AI experience?",
-   a:"There are two things I've built with AI that you can go look at right now. One is the [restaurant guide](https://www.seattlevegangroup.org/guide) for the vegan co-op: I built it with AI, it's live, and people use it to find somewhere to eat. The other is this. The page you're reading was put together the same way, which is why it's sitting down there in Selected work. If you want to know what my AI work looks like, you're already looking at it.\n\nThe part that took actual effort wasn't getting it to produce things. That's the easy bit now. It was catching what it got wrong. On this page alone it invented a set of interview questions out of thin air, and twice it wrote sentences giving me credit for things other people had done. Those would have gone out if I hadn't known better.\n\nSo I keep a written set of rules for how I work with these tools, and I test them instead of assuming they help. Some of my own rules turned out to make no difference at all, and I only found that out because I checked. That's most of the skill, honestly. Knowing it's confidently wrong sometimes, and building the habit of looking.\n\nWhat I haven't done is the engineering side: no training models, no datasets, none of the specialist tooling. I did take a [University of Washington machine learning course](https://www.coursera.org/account/accomplishments/verify/8WCCW3S8CYZB) years back — concepts and applications, a high-level overview, not the engineering itself. The [testing method is published](https://github.com/jzesbaugh/llm-instruction-evals) on GitHub — three versions of the protocol, the failure taxonomy, and the case studies, including the ones where testing proved me wrong. The rule set it tests is mine and stays private.",
-   s:"github.com/jzesbaugh/llm-instruction-evals, MIT licensed"},
+   a:"I use AI every day, and you can open three things it helped me build right now. The [restaurant guide](https://www.seattlevegangroup.org/guide) for the vegan co-op is live, and people use it to find somewhere to eat. This page was put together the same way. And the [Evidentiality Framework for AI](https://evidentiality-framework.org/) is my own published research on how to tell an AI's facts from its guesses. All three are in Selected work below.\n\nGetting AI to produce things is the easy part now. The skill is catching what it gets wrong. On this page alone it invented a set of interview questions out of thin air, and twice it wrote sentences giving me credit for things other people had done. Those would have gone out if I hadn't been reading line by line.\n\nSo I keep a written set of rules for how my assistant handles my files, my sources and its own uncertainty, and when something goes wrong in real work, the failure gets written down and becomes a candidate for a new rule. There are more than a hundred of those entries now. I don't assume a rule helps: I test it, with pass and fail decided before the run, and the same questions asked again with no rules at all as a control. That control showed several of my rules made no difference, and twice it proved my own prediction wrong. The [testing method is published](https://github.com/jzesbaugh/llm-instruction-evals) on GitHub, including the results that went against me.\n\nThe framework grew out of those rules. My assistant labels every claim by where it came from: given to it, checked against a named source, or its own guess. I tested what happens when text passes between AI agents, and without the labels, guesses turned into confirmed facts within a few hand-offs. In one set of hand-off tests, 33 of 36 facts kept their source with the labels and 4 of 36 without. It's published with the raw logs and the findings that didn't hold up, so anyone can check it or break it.\n\nWhat I haven't done is the engineering side: no training models and no building datasets. I did take a [University of Washington machine learning course](https://www.coursera.org/account/accomplishments/verify/8WCCW3S8CYZB) years back — concepts and applications, a high-level overview, not the engineering itself. Everything above happens at the level where people actually meet these tools: the instructions, the output, and checking one against the other.",
+   s:"evidentiality-framework.org, CC BY 4.0 · github.com/jzesbaugh/llm-instruction-evals, MIT licensed · Seattle Vegan Restaurant Guide, live"},
 
   {k:"Under pressure", ok:1,
    q:"Tell me about a time you were under real pressure.",
