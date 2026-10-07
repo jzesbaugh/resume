@@ -1,6 +1,6 @@
 # jzesbaugh.github.io/resume
 
-An interactive resume. Thirteen interview questions, answered in advance, in one HTML file.
+An interactive resume. Fourteen interview questions, answered in advance, in one HTML file.
 
 **Live:** <https://jzesbaugh.github.io/resume/>
 
@@ -121,7 +121,7 @@ you look good reads like a page that only makes you look good.
 
 ## Honest limits
 
-- **It can't answer anything I didn't anticipate.** Thirteen questions is not an interview. It's
+- **It can't answer anything I didn't anticipate.** Fourteen questions is not an interview. It's
   a head start on one.
 - **It can't answer "why do you want to work *here*".** That's the best question in any
   interview and a generic page structurally cannot do it. Ask me directly.
@@ -136,6 +136,14 @@ you look good reads like a page that only makes you look good.
 - **The schema has no `hasCredential`.** That's the natural place to list the degree and the
   certifications, and it stays empty until the degree actually confers in October. Structured
   data asserting a credential you don't hold yet is worse than omitting it.
+
+## On the CannaMLS years
+
+CannaMLS was a B2B marketplace for licensed cannabis businesses and commercial real estate.
+What drew me in was never the product; it was the business. A brand-new legal market, with the rules
+being written state by state while we worked in it, was a rare chance to build a company and learn
+regulatory policy at the same time. For someone who likes entrepreneurship, that combination
+doesn't come along often.
 
 ## Colophon
 
