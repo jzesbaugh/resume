@@ -1,6 +1,6 @@
 # jzesbaugh.github.io/resume
 
-An interactive resume. Fourteen interview questions, answered in advance, in one HTML file.
+An interactive resume. Fifteen interview questions, answered in advance, in one HTML file.
 
 **Live:** <https://jzesbaugh.github.io/resume/>
 
@@ -121,7 +121,7 @@ you look good reads like a page that only makes you look good.
 
 ## Honest limits
 
-- **It can't answer anything I didn't anticipate.** Fourteen questions is not an interview. It's
+- **It can't answer anything I didn't anticipate.** Fifteen questions is not an interview. It's
   a head start on one.
 - **It can't answer "why do you want to work *here*".** That's the best question in any
   interview and a generic page structurally cannot do it. Ask me directly.
